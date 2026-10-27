@@ -14,3 +14,6 @@ ui-debug.log
 # Dependências e builds locais (não usados ainda, mas preventivos)
 node_modules/
 dist/
+
+# Imagens locais não rastreadas
+/img/
