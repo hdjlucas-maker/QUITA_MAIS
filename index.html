@@ -3,24 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📈QUITA_MAIS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0B1220">
+    <meta name="description"
+        content="Organize suas finanças, acompanhe metas e desenvolva hábitos melhores com o Quita+.">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Quita+">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <title>Quita+ — Sua evolução financeira</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --surface: #111111;
-            --surface2: #181818;
-            --border: rgba(255, 255, 255, 0.07);
-            --gold: #F5A623;
-            --gold-dark: #C47D0A;
-            --red: #E03A3A;
+            --bg: #0B1220;
+            --surface: #111C2E;
+            --surface2: #17243A;
+            --field: #0C1726;
+            --border: rgba(148, 163, 184, 0.14);
+            --brand: #34D399;
+            --brand-dark: #059669;
+            --brand-soft: rgba(52, 211, 153, .14);
+            --accent: #F5A623;
+            --accent-soft: rgba(245, 166, 35, .14);
+            --red: #F87171;
+            --red-soft: rgba(248, 113, 113, .14);
             --green: #22C55E;
-            --text: #F0EAD8;
-            --muted: rgba(240, 234, 216, 0.45);
-            --title: 'Bebas Neue', cursive;
-            --body: 'Rajdhani', sans-serif;
+            --text: #E5EDF7;
+            --muted: #94A3B8;
+            --title: 'Manrope', sans-serif;
+            --body: 'DM Sans', sans-serif;
         }
 
         * {
@@ -35,6 +51,29 @@
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid var(--brand);
+            outline-offset: 3px;
+        }
+
+        label.sr {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         /* ─── SCREENS ─── */
@@ -66,26 +105,54 @@
             justify-content: center;
             padding: 2rem 1.5rem;
             position: relative;
-            background: radial-gradient(ellipse 100% 70% at 50% 0%, rgba(224, 58, 58, 0.18) 0%, transparent 70%);
+            background: radial-gradient(ellipse 100% 70% at 50% 0%, var(--brand-soft) 0%, transparent 70%);
         }
 
-        .{
-            font-size: 7rem;
+        .lion-emoji {
+            font-size: 3rem;
             display: block;
-            animation: growl 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 40px rgba(224, 58, 58, 0.5));
+            margin-bottom: .4rem;
         }
 
-        @keyframes growl {
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            margin-bottom: .8rem;
+            border: 1px solid rgba(52, 211, 153, .35);
+            border-radius: 1.4rem;
+            background: linear-gradient(145deg, rgba(52, 211, 153, .18), rgba(96, 165, 250, .12));
+            color: var(--brand);
+            font-family: var(--title);
+            font-size: 1.8rem;
+            font-weight: 800;
+            box-shadow: 0 12px 40px rgba(16, 185, 129, .12);
+        }
 
-            0%,
-            100% {
-                transform: scale(1) rotate(-2deg);
-            }
+        .brand-mark::after {
+            content: "+";
+            color: var(--accent);
+            font-size: 1.25rem;
+            align-self: start;
+            margin: .55rem 0 0 -.15rem;
+        }
 
-            50% {
-                transform: scale(1.06) rotate(2deg);
-            }
+        .login-card .brand-mark {
+            width: 3.8rem;
+            height: 3.8rem;
+            margin: 0 auto .8rem;
+            border-radius: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        .entrada-eyebrow {
+            margin-bottom: .2rem;
+            color: var(--brand);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .entrada-title {
@@ -94,7 +161,7 @@
             letter-spacing: 4px;
             text-align: center;
             margin: .5rem 0 0;
-            background: linear-gradient(160deg, #ff4d4d 0%, #F5A623 60%);
+            background: linear-gradient(120deg, var(--brand) 0%, var(--accent) 85%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -134,8 +201,8 @@
         }
 
         .dp-badge {
-            background: rgba(224, 58, 58, .15);
-            color: #ff8888;
+            background: var(--accent-soft);
+            color: var(--accent);
             font-size: .65rem;
             padding: .15rem .5rem;
             border-radius: 20px;
@@ -144,23 +211,28 @@
         }
 
         .btn-entrar {
-            background: var(--red);
+            background: linear-gradient(120deg, var(--brand-dark), #16A34A);
             color: #fff;
             border: none;
             padding: 1rem 2.5rem;
             border-radius: 50px;
             font-family: var(--title);
-            font-size: 1.6rem;
+            font-size: 1.35rem;
             letter-spacing: 2px;
             cursor: pointer;
             transition: .15s;
-            box-shadow: 0 0 30px rgba(224, 58, 58, .4);
+            box-shadow: 0 0 30px rgba(52, 211, 153, .25);
             width: 100%;
             max-width: 360px;
         }
 
         .btn-entrar:active {
             transform: scale(.97);
+        }
+
+        .btn-entrar[disabled] {
+            opacity: .6;
+            cursor: wait;
         }
 
         .entrada-fine {
@@ -175,7 +247,7 @@
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(224, 58, 58, .12), transparent);
+            background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--brand-soft), transparent);
         }
 
         .ob-card {
@@ -237,14 +309,14 @@
 
         .ob-opt:hover,
         .ob-opt.selected {
-            border-color: var(--red);
-            background: rgba(224, 58, 58, .1);
-            color: #ff8888;
+            border-color: var(--brand);
+            background: var(--brand-soft);
+            color: #6EE7B7;
         }
 
         .ob-input {
-            background: #0d0d0d;
-            border: 1px solid rgba(245, 166, 35, .4);
+            background: var(--field);
+            border: 1px solid var(--border);
             padding: .9rem 1.2rem;
             border-radius: 40px;
             color: var(--text);
@@ -256,17 +328,17 @@
 
         .ob-input:focus {
             outline: none;
-            border-color: var(--gold);
+            border-color: var(--brand);
         }
 
         .btn-ob-next {
-            background: var(--red);
+            background: linear-gradient(120deg, var(--brand-dark), #16A34A);
             color: #fff;
             border: none;
             padding: .85rem;
             border-radius: 40px;
             font-family: var(--title);
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             letter-spacing: 1px;
             cursor: pointer;
             width: 100%;
@@ -305,7 +377,7 @@
         }
 
         .ob-dot.done {
-            background: var(--red);
+            background: var(--brand);
         }
 
         /* ─── LOGIN ─── */
@@ -317,13 +389,13 @@
 
         .login-card {
             background: var(--surface);
-            border: 1px solid rgba(245, 166, 35, .3);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 2rem 1.5rem;
             max-width: 360px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 0 60px rgba(224, 58, 58, .15);
+            box-shadow: 0 0 60px var(--brand-soft);
         }
 
         .login-lion {
@@ -335,7 +407,7 @@
         .login-title {
             font-family: var(--title);
             font-size: 2.5rem;
-            background: linear-gradient(135deg, #ff4d4d, #F5A623);
+            background: linear-gradient(120deg, var(--brand), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -370,6 +442,15 @@
             background: #f0f0f0;
         }
 
+        .google-btn[disabled] {
+            opacity: .6;
+            cursor: wait;
+        }
+
+        .google-btn svg {
+            flex: none;
+        }
+
         .login-fine {
             font-size: .7rem;
             color: var(--muted);
@@ -399,22 +480,28 @@
             font-family: var(--title);
             font-size: 1.8rem;
             letter-spacing: 2px;
-            background: linear-gradient(135deg, #ff4d4d, #F5A623);
+            background: linear-gradient(135deg, var(--brand), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
         .btn-logout {
-            background: rgba(58, 20, 20, .8);
-            border: 1px solid #ff5555;
-            color: #ffaaaa;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--muted);
             padding: .3rem .8rem;
             border-radius: 20px;
             cursor: pointer;
             font-family: var(--body);
             font-size: .8rem;
             font-weight: 600;
+            transition: .15s;
+        }
+
+        .btn-logout:hover {
+            color: var(--red);
+            border-color: var(--red);
         }
 
         /* user bar */
@@ -434,6 +521,15 @@
             line-height: 1;
         }
 
+        .user-avatar img {
+            width: 2.6rem;
+            height: 2.6rem;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 1px solid var(--border);
+        }
+
         .user-info {
             flex: 1;
         }
@@ -445,12 +541,12 @@
 
         .user-class {
             font-size: .75rem;
-            color: var(--gold);
+            color: var(--accent);
             font-weight: 600;
         }
 
         .xp-bar {
-            background: #1a1a1a;
+            background: var(--field);
             border-radius: 20px;
             height: 6px;
             margin: 4px 0;
@@ -459,7 +555,7 @@
 
         .xp-fill {
             height: 100%;
-            background: linear-gradient(90deg, #e03a3a, #F5A623);
+            background: linear-gradient(90deg, var(--brand-dark), var(--brand));
             border-radius: 20px;
             transition: width .5s;
         }
@@ -487,8 +583,8 @@
 
         .stat-val {
             font-family: var(--title);
-            font-size: 1.4rem;
-            color: var(--gold);
+            font-size: 1.2rem;
+            color: var(--accent);
         }
 
         .stat-lbl {
@@ -509,7 +605,8 @@
             font-family: var(--title);
             font-size: 1.3rem;
             letter-spacing: 1px;
-            border-bottom: 2px solid var(--red);
+            border-bottom: 1px solid var(--border);
+            border-image: linear-gradient(90deg, var(--brand), transparent) 1;
             padding-bottom: .3rem;
             margin-bottom: .9rem;
         }
@@ -531,7 +628,7 @@
         }
 
         .desafio-card.active-d {
-            border-left: 3px solid var(--gold);
+            border-left: 3px solid var(--brand);
         }
 
         .desafio-top {
@@ -573,18 +670,18 @@
         }
 
         .pill-dif-2 {
-            background: rgba(245, 166, 35, .15);
-            color: #fbbf24;
+            background: var(--accent-soft);
+            color: var(--accent);
         }
 
         .pill-dif-3 {
-            background: rgba(224, 58, 58, .15);
-            color: #f87171;
+            background: var(--red-soft);
+            color: var(--red);
         }
 
         .pill-xp {
-            background: rgba(245, 166, 35, .1);
-            color: var(--gold);
+            background: var(--accent-soft);
+            color: var(--accent);
         }
 
         .pill-prazo {
@@ -593,7 +690,7 @@
         }
 
         .btn-aceitar {
-            background: var(--red);
+            background: linear-gradient(120deg, var(--brand-dark), #16A34A);
             border: none;
             color: #fff;
             padding: .4rem .9rem;
@@ -611,7 +708,7 @@
         }
 
         .btn-concluir {
-            background: rgba(34, 197, 94, .15);
+            background: var(--brand-soft);
             border: 1px solid rgba(34, 197, 94, .3);
             color: #4ade80;
             padding: .4rem .9rem;
@@ -632,19 +729,29 @@
             font-family: var(--body);
             font-size: .75rem;
             cursor: pointer;
+            transition: .15s;
+        }
+
+        .btn-desistir:hover {
+            color: var(--red);
+            border-color: var(--red);
         }
 
         .desafio-timer {
             font-size: .7rem;
-            color: var(--gold);
+            color: var(--accent);
             font-weight: 600;
             margin-top: .3rem;
+        }
+
+        .desafio-timer.expired {
+            color: var(--red);
         }
 
         /* ia mensagem */
         .ia-box {
             background: var(--surface2);
-            border: 1px solid rgba(34, 197, 94, .2);
+            border: 1px solid rgba(52, 211, 153, .2);
             border-radius: 14px;
             padding: 1rem;
             font-size: .9rem;
@@ -652,6 +759,7 @@
             line-height: 1.55;
             min-height: 60px;
             position: relative;
+            overflow-wrap: anywhere;
         }
 
         .ia-loading {
@@ -661,8 +769,8 @@
         }
 
         .btn-nova-ia {
-            background: rgba(34, 197, 94, .1);
-            border: 1px solid rgba(34, 197, 94, .25);
+            background: var(--brand-soft);
+            border: 1px solid rgba(52, 211, 153, .25);
             color: #4ade80;
             padding: .5rem 1rem;
             border-radius: 20px;
@@ -683,36 +791,38 @@
         .money-input-row {
             display: flex;
             gap: .5rem;
-            margin: .5rem 0;
+            margin: .5rem 0 0;
         }
 
         .app-input {
-            background: #0d0d0d;
-            border: 1px solid rgba(245, 166, 35, .35);
+            background: var(--field);
+            border: 1px solid var(--border);
             padding: .7rem 1rem;
             border-radius: 40px;
             color: var(--text);
             font-family: var(--body);
             font-size: .95rem;
             flex: 1;
+            min-width: 0;
         }
 
         .app-input:focus {
             outline: none;
-            border-color: var(--gold);
+            border-color: var(--brand);
         }
 
         .btn-guardar {
-            background: var(--red);
+            background: linear-gradient(120deg, var(--brand-dark), #16A34A);
             border: none;
             color: #fff;
             padding: .7rem 1.2rem;
             border-radius: 40px;
             font-family: var(--title);
-            font-size: 1.1rem;
+            font-size: 1rem;
             letter-spacing: 1px;
             cursor: pointer;
             transition: .15s;
+            white-space: nowrap;
         }
 
         .btn-guardar:active {
@@ -729,9 +839,16 @@
         .hist-list li {
             display: flex;
             justify-content: space-between;
+            gap: .5rem;
             padding: .4rem 0;
             border-bottom: 1px solid var(--border);
             font-size: .82rem;
+        }
+
+        .hist-date {
+            color: var(--muted);
+            font-size: .68rem;
+            margin-left: .4rem;
         }
 
         .hist-list::-webkit-scrollbar {
@@ -755,6 +872,11 @@
             display: flex;
             align-items: center;
             gap: .5rem;
+        }
+
+        .rank-list li.me {
+            color: #6EE7B7;
+            font-weight: 700;
         }
 
         .rank-xp {
@@ -805,7 +927,7 @@
         }
 
         .boss-hp-bar {
-            background: #1a1a1a;
+            background: var(--field);
             border-radius: 20px;
             height: 10px;
             margin: .4rem 0;
@@ -814,7 +936,7 @@
 
         .boss-hp-fill {
             height: 100%;
-            background: linear-gradient(90deg, #e03a3a, #ff6b6b);
+            background: linear-gradient(90deg, #DC2626, var(--red));
             border-radius: 20px;
             transition: width .4s;
         }
@@ -828,9 +950,9 @@
         }
 
         .btn-attack {
-            background: rgba(224, 58, 58, .15);
-            border: 1px solid rgba(224, 58, 58, .3);
-            color: #ff8888;
+            background: var(--red-soft);
+            border: 1px solid rgba(248, 113, 113, .3);
+            color: var(--red);
             padding: .4rem .9rem;
             border-radius: 20px;
             font-family: var(--body);
@@ -865,6 +987,20 @@
             text-align: center;
         }
 
+        /* noscript */
+        .noscript-banner {
+            position: fixed;
+            inset: auto 1rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--red);
+            color: var(--text);
+            padding: 1rem;
+            border-radius: 14px;
+            z-index: 1000;
+            text-align: center;
+            font-size: .9rem;
+        }
+
         footer {
             text-align: center;
             font-size: .68rem;
@@ -873,20 +1009,58 @@
             padding-top: 1rem;
             border-top: 1px solid var(--border);
         }
+
+        @media (max-width: 420px) {
+            .app-wrap {
+                padding-right: .75rem;
+                padding-left: .75rem;
+            }
+
+            .app-logo {
+                font-size: 1.55rem;
+                letter-spacing: 1px;
+            }
+
+            .money-input-row {
+                flex-wrap: wrap;
+            }
+
+            .money-input-row .app-input {
+                min-width: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="flash" id="flash"></div>
+    <div class="flash" id="flash" role="status" aria-live="polite"></div>
+
+    <noscript>
+        <div class="noscript-banner">
+            <strong>O Quita+ precisa de JavaScript para funcionar.</strong><br>
+            Ative o JavaScript nas configurações do seu navegador e recarregue a página.
+        </div>
+    </noscript>
 
     <!-- ══ TELA ENTRADA ══ -->
     <div id="entradaScreen" class="screen active">
         <div class="entrada-hero">
-            <span class="lion-emoji">🦁</span>
-            <div class="entrada-title">QUITA_MAIS</div>
-            <p class="entrada-tagline">Tá perdendo dinheiro ?<br>Aqui você Pratica pra  <strong
-                    style="color:var(--gold)">conquistar</strong> de volta.</p>
+            <span class="lion-emoji" aria-hidden="true">🦁</span>
+            <div class="entrada-title">Quita+</div>
+            <p class="entrada-tagline">O inverso do Tigrinho: menos impulso, mais escolhas conscientes para sair das
+                dívidas.</p>
 
             <div class="desafio-preview">
                 <div class="dp-item">🚫 7 dias sem delivery <span class="dp-badge">+150 XP</span></div>
@@ -895,7 +1069,7 @@
             </div>
 
             <button class="btn-entrar" id="btnEntrar">ACEITAR O DESAFIO</button>
-            <p class="entrada-fine">100% gratuito para começar &nbsp;·&nbsp; sem cartão de crédito</p>
+            <p class="entrada-fine">Comece no seu ritmo &nbsp;·&nbsp; sem cartão de crédito</p>
         </div>
     </div>
 
@@ -925,24 +1099,25 @@
             <!-- STEP 1 -->
             <div class="ob-step" id="obStep1">
                 <div class="ob-step-label">Passo 2 de 3</div>
-                <div class="ob-title">Quanto esse leão já te roubou?</div>
-                <input class="ob-input" type="number" id="obDivida" placeholder="Valor aproximado da dívida (R$)"
-                    min="0">
+                <div class="ob-title">Qual é o valor aproximado da dívida que você quer quitar?</div>
+                <label class="sr" for="obDivida">Valor aproximado da dívida em reais</label>
+                <input class="ob-input" type="number" id="obDivida" inputmode="decimal"
+                    placeholder="Valor aproximado (R$)" min="0">
                 <button class="btn-ob-next" id="obNext1">CONTINUAR →</button>
-                <button class="btn-ob-back" onclick="goObStep(0)">← voltar</button>
+                <button class="btn-ob-back" data-go="0">← voltar</button>
             </div>
 
             <!-- STEP 2 -->
             <div class="ob-step" id="obStep2">
                 <div class="ob-step-label">Passo 3 de 3</div>
-                <div class="ob-title">Em quanto tempo quer ser livre?</div>
+                <div class="ob-title">Em quanto tempo você gostaria de avançar?</div>
                 <div class="ob-options">
                     <button class="ob-opt" data-val="3">⚡ 3 meses — missão urgente</button>
                     <button class="ob-opt" data-val="6">🔥 6 meses — ritmo forte</button>
                     <button class="ob-opt" data-val="12">🛡️ 1 ano — passo a passo</button>
                 </div>
                 <button class="btn-ob-next" id="obNext2">COMEÇAR A BATALHA 🦁</button>
-                <button class="btn-ob-back" onclick="goObStep(1)">← voltar</button>
+                <button class="btn-ob-back" data-go="1">← voltar</button>
             </div>
         </div>
     </div>
@@ -950,20 +1125,32 @@
     <!-- ══ LOGIN ══ -->
     <div id="loginScreen" class="screen">
         <div class="login-card">
-            <span class="login-lion">🦁</span>
-            <div class="login-title">QUITA_MAIS</div>
-            <p class="login-sub">Salve seu progresso e entre na batalha</p>
-            <button class="google-btn" id="loginGoogleBtn">🅶 Entrar com Google</button>
+            <span class="login-lion" aria-hidden="true">🦁</span>
+            <div class="login-title">Quita+</div>
+            <p class="login-sub">Salve seu progresso e continue sua jornada financeira</p>
+            <button class="google-btn" id="loginGoogleBtn">
+                <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                    <path fill="#EA4335"
+                        d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                    <path fill="#4285F4"
+                        d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                    <path fill="#FBBC05"
+                        d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                    <path fill="#34A853"
+                        d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                </svg>
+                Entrar com Google
+            </button>
             <div class="login-fine">Seus dados ficam protegidos pelo Google<br>100% gratuito para começar</div>
         </div>
     </div>
 
     <!-- ══ APP ══ -->
     <div id="appScreen" class="screen">
-        <div class="app-wrap">
+        <main class="app-wrap">
 
             <div class="top-bar">
-                <div class="app-logo">📈 QUITA_MAIS</div>
+                <div class="app-logo">📈 Quita+</div>
                 <button class="btn-logout" id="logoutBtn">Sair</button>
             </div>
 
@@ -996,10 +1183,11 @@
                 </div>
             </div>
 
-            <!-- IA motivacional -->
+            <!-- Coach motivacional -->
             <div class="card">
                 <div class="card-title">🤖 SEU COACH DE BATALHA</div>
-                <div class="ia-box" id="iaBox"><span class="ia-loading">Carregando mensagem do seu coach...</span></div>
+                <div class="ia-box" id="iaBox" role="status" aria-live="polite"><span class="ia-loading">Carregando
+                        mensagem do seu coach...</span></div>
                 <button class="btn-nova-ia" id="btnNovaIa">🔄 Nova mensagem</button>
             </div>
 
@@ -1021,11 +1209,13 @@
             <div class="card">
                 <div class="card-title">💰 GUARDAR DINHEIRO</div>
                 <div class="money-input-row">
-                    <input class="app-input" type="number" id="saveAmount" placeholder="Quanto guardou? (R$)" min="0.01"
-                        step="0.01">
+                    <label class="sr" for="saveAmount">Valor guardado em reais</label>
+                    <input class="app-input" type="number" id="saveAmount" inputmode="decimal"
+                        placeholder="Quanto guardou? (R$)" min="0.01" step="0.01">
                     <button class="btn-guardar" id="saveBtn">GUARDAR</button>
                 </div>
-                <input class="app-input" type="text" id="saveNote" placeholder="Nota (ex: freela, sobrou do mercado)"
+                <label class="sr" for="saveNote">Nota sobre o depósito</label>
+                <input class="app-input" type="text" id="saveNote" maxlength="40" placeholder="Nota (ex: freela, sobrou do mercado)"
                     style="margin-top:.3rem">
                 <ul class="hist-list" id="histList" style="margin-top:.7rem">
                     <li style="color:var(--muted)">Nenhum depósito ainda.</li>
@@ -1053,17 +1243,17 @@
             </div>
 
             <footer>
-                © 2025 📈 QUITA_MAIS — O inverso do Tigrinho<br>
-                🔒 Dados protegidos · PIX: suportequita_mais@gmail.com
+                © 2026 📈 Quita+ — O inverso do Tigrinho<br>
+                🔒 Seus dados ficam só com você · suporte: suportequita_mais@gmail.com
             </footer>
-        </div>
+        </main>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
             from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc, updateDoc, collection, query, orderBy, limit, getDocs }
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, collection, query, orderBy, limit, getDocs, runTransaction }
             from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         const FB = {
@@ -1081,11 +1271,21 @@
 
         let CU = null, UD = null;
         const OB = { inimigo: '', divida: 0, tempo: 6 };
+        const XP_BASE = 200;
+        const BOSS_MAX = 3;
 
         // ─── utils ───────────────────────────────────────
         const $ = id => document.getElementById(id);
         const san = s => String(s).replace(/[<>&"']/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&#39;' }[c]));
-        const today = () => new Date().toISOString().slice(0, 10);
+        // data local (não UTC) para streak não quebrar às 21h no Brasil
+        const today = () => {
+            const d = new Date();
+            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        };
+        const localDate = (offsetDays = 0) => {
+            const d = new Date(Date.now() + offsetDays * 86400000);
+            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        };
 
         const _cd = {};
         function canAct(k, ms = 1200) {
@@ -1108,16 +1308,17 @@
             ['entradaScreen', 'onboardingScreen', 'loginScreen', 'appScreen']
                 .forEach(s => { const el = $(s); if (el) el.classList.remove('active'); });
             $(id).classList.add('active');
+            window.scrollTo({ top: 0 });
         }
 
         // ─── ONBOARDING ──────────────────────────────────
         let obStep = 0;
-        window.goObStep = function (n) {
+        function goObStep(n) {
             $(`obStep${obStep}`).classList.remove('active');
             obStep = n;
             $(`obStep${n}`).classList.add('active');
             [0, 1, 2].forEach(i => { $(`dot${i}`).classList.toggle('done', i < n); });
-        };
+        }
 
         // selecionar opção
         document.querySelectorAll('.ob-opt').forEach(btn => {
@@ -1127,22 +1328,25 @@
             });
         });
 
-        $('obNext0').onclick = () => {
+        document.querySelectorAll('.btn-ob-back').forEach(b =>
+            b.addEventListener('click', () => goObStep(parseInt(b.dataset.go))));
+
+        $('obNext0').addEventListener('click', () => {
             const sel = $('obStep0').querySelector('.ob-opt.selected');
-            if (!sel) { flash('Escolha seu inimigo!', '#F5A623'); return; }
+            if (!sel) { flash('Escolha seu inimigo!', 'var(--accent)'); return; }
             OB.inimigo = sel.dataset.val;
             goObStep(1);
-        };
-        $('obNext1').onclick = () => {
-            OB.divida = parseFloat($('obDivida').value) || 0;
+        });
+        $('obNext1').addEventListener('click', () => {
+            OB.divida = Math.max(0, parseFloat($('obDivida').value) || 0);
             goObStep(2);
-        };
-        $('obNext2').onclick = () => {
+        });
+        $('obNext2').addEventListener('click', () => {
             const sel = $('obStep2').querySelector('.ob-opt.selected');
-            if (!sel) { flash('Escolha seu prazo!', '#F5A623'); return; }
+            if (!sel) { flash('Escolha seu prazo!', 'var(--accent)'); return; }
             OB.tempo = parseInt(sel.dataset.val);
             show('loginScreen');
-        };
+        });
 
         // ─── DESAFIOS ─────────────────────────────────────
         const DESAFIOS_BASE = [
@@ -1167,6 +1371,16 @@
             return d === 1 ? 'pill-dif-1' : d === 2 ? 'pill-dif-2' : 'pill-dif-3';
         }
 
+        function timerInfo(a) {
+            const def = DESAFIOS_BASE.find(d => d.id === a.id);
+            if (!def) return { text: '', expired: false };
+            const deadline = new Date(a.iniciou).getTime() + def.prazo * 86400000;
+            const rest = deadline - Date.now();
+            if (rest <= 0) return { text: '⏰ Prazo expirado', expired: true };
+            const h = Math.round(rest / 3600000);
+            return { text: h >= 48 ? `⏰ ${Math.round(h / 24)} dias restantes` : `⏰ ${h}h restantes`, expired: false };
+        }
+
         function renderDesafios() {
             const ativos = UD.desafiosAtivos || {};
             const concluidos = new Set(UD.desafiosConcluidos || []);
@@ -1181,9 +1395,7 @@
                 ativosArr.forEach(a => {
                     const def = DESAFIOS_BASE.find(d => d.id === a.id);
                     if (!def) return;
-                    const deadline = new Date(a.iniciou);
-                    deadline.setDate(deadline.getDate() + def.prazo);
-                    const diffH = Math.max(0, Math.round((deadline - Date.now()) / 3600000));
+                    const t = timerInfo(a);
                     const div = document.createElement('div');
                     div.className = 'desafio-card active-d';
                     div.innerHTML = `
@@ -1191,7 +1403,7 @@
           <div>
             <div class="desafio-nome">${def.nome}</div>
             <div class="desafio-desc">${def.desc}</div>
-            <div class="desafio-timer">⏰ ${diffH}h restantes</div>
+            <div class="desafio-timer ${t.expired ? 'expired' : ''}" data-start="${a.iniciou}" data-prazo="${def.prazo}">${t.text}</div>
           </div>
         </div>
         <div class="desafio-badges" style="margin-top:.6rem">
@@ -1201,8 +1413,8 @@
       `;
                     ativoEl.appendChild(div);
                 });
-                ativoEl.querySelectorAll('.btn-concluir').forEach(b => b.onclick = () => concluirDesafio(b.dataset.id));
-                ativoEl.querySelectorAll('.btn-desistir').forEach(b => b.onclick = () => desistirDesafio(b.dataset.id));
+                ativoEl.querySelectorAll('.btn-concluir').forEach(b => b.addEventListener('click', () => concluirDesafio(b.dataset.id)));
+                ativoEl.querySelectorAll('.btn-desistir').forEach(b => b.addEventListener('click', () => desistirDesafio(b.dataset.id)));
             }
 
             // DISPONÍVEIS (filtrar ativos e concluídos)
@@ -1232,20 +1444,41 @@
     `;
                 lista.appendChild(div);
             });
-            lista.querySelectorAll('.btn-aceitar').forEach(b => b.onclick = () => aceitarDesafio(b.dataset.id));
+            lista.querySelectorAll('.btn-aceitar').forEach(b => b.addEventListener('click', () => aceitarDesafio(b.dataset.id)));
         }
+
+        // atualiza só os relógios dos desafios (sem re-render completo)
+        setInterval(() => {
+            if (!UD) return;
+            document.querySelectorAll('.desafio-timer[data-start]').forEach(el => {
+                const btn = el.closest('.desafio-card')?.querySelector('[data-id]');
+                if (!btn) return;
+                const info = timerInfo({ id: btn.dataset.id, iniciou: el.dataset.start });
+                el.textContent = info.text;
+                el.classList.toggle('expired', info.expired);
+            });
+        }, 60_000);
 
         async function aceitarDesafio(id) {
             if (!canAct('aceitar_' + id)) return;
             const def = DESAFIOS_BASE.find(d => d.id === id);
             if (!def) return;
-            const ativos = UD.desafiosAtivos || {};
-            if (Object.keys(ativos).length >= 3) { flash('Máximo 3 desafios simultâneos!', '#F5A623'); return; }
-            ativos[id] = { id, iniciou: new Date().toISOString() };
-            UD.desafiosAtivos = ativos;
-            await updateDoc(doc(db, 'usuarios', CU.uid), { desafiosAtivos: ativos });
+            const ref = doc(db, 'usuarios', CU.uid);
+            const out = await withTx(async tx => {
+                const snap = await tx.get(ref);
+                const d = snap.exists() ? snap.data() : UD;
+                const ativos = { ...(d.desafiosAtivos || {}) };
+                if (ativos[id]) return null;
+                if (Object.keys(ativos).length >= BOSS_MAX) return { limit: true };
+                ativos[id] = { id, iniciou: new Date().toISOString() };
+                tx.update(ref, { desafiosAtivos: ativos });
+                return { ativos };
+            });
+            if (!out) return;
+            if (out.limit) { flash('Máximo 3 desafios simultâneos!', 'var(--accent)'); return; }
+            UD.desafiosAtivos = out.ativos;
             flash(`Desafio aceito: ${def.nome} ⚔️`);
-            await gerarMensagemIA();
+            gerarMensagemIA();
             renderDesafios();
         }
 
@@ -1253,107 +1486,185 @@
             if (!canAct('concluir_' + id)) return;
             const def = DESAFIOS_BASE.find(d => d.id === id);
             if (!def) return;
-            const ativos = { ...UD.desafiosAtivos };
-            delete ativos[id];
-            const concluidos = [...(UD.desafiosConcluidos || []), id];
-            const totalDesafios = (UD.totalDesafios || 0) + 1;
-            UD.desafiosAtivos = ativos;
-            UD.desafiosConcluidos = concluidos;
-            UD.totalDesafios = totalDesafios;
-            await updateDoc(doc(db, 'usuarios', CU.uid), { desafiosAtivos: ativos, desafiosConcluidos: concluidos, totalDesafios });
+            const ref = doc(db, 'usuarios', CU.uid);
+            const out = await withTx(async tx => {
+                const snap = await tx.get(ref);
+                const d = snap.exists() ? snap.data() : UD;
+                const ativos = { ...(d.desafiosAtivos || {}) };
+                const concluidos = new Set(d.desafiosConcluidos || []);
+                if (!ativos[id] || concluidos.has(id)) return null;
+                delete ativos[id];
+                concluidos.add(id);
+                const totalDesafios = (d.totalDesafios || 0) + 1;
+                const patch = { desafiosAtivos: ativos, desafiosConcluidos: [...concluidos], totalDesafios };
+                tx.update(ref, patch);
+                return patch;
+            });
+            if (!out) return;
+            UD.desafiosAtivos = out.desafiosAtivos;
+            UD.desafiosConcluidos = out.desafiosConcluidos;
+            UD.totalDesafios = out.totalDesafios;
             await updateProgress(def.xp, 0, `Desafio: ${def.nome}`);
             flash(`🏆 DESAFIO VENCIDO! +${def.xp} XP!`);
-            await gerarMensagemIA('vitoria');
+            gerarMensagemIA('vitoria');
             renderDesafios();
             checkConquistas();
         }
 
         async function desistirDesafio(id) {
-            const ativos = { ...UD.desafiosAtivos };
-            delete ativos[id];
-            UD.desafiosAtivos = ativos;
-            await updateDoc(doc(db, 'usuarios', CU.uid), { desafiosAtivos: ativos });
-            flash('Desafio abandonado. Você pode tentar novamente!', '#F5A623');
+            if (!canAct('desistir_' + id)) return;
+            const ref = doc(db, 'usuarios', CU.uid);
+            const out = await withTx(async tx => {
+                const snap = await tx.get(ref);
+                const d = snap.exists() ? snap.data() : UD;
+                const ativos = { ...(d.desafiosAtivos || {}) };
+                if (!ativos[id]) return null;
+                delete ativos[id];
+                tx.update(ref, { desafiosAtivos: ativos });
+                return { ativos };
+            });
+            if (!out) return;
+            UD.desafiosAtivos = out.ativos;
+            flash('Desafio abandonado. Você pode tentar novamente!', 'var(--accent)');
             renderDesafios();
         }
 
-        // ─── IA MENSAGEM ──────────────────────────────────
-        async function gerarMensagemIA(contexto = 'geral') {
-            const box = $('iaBox');
-            if (!box) return;
-            box.innerHTML = '<span class="ia-loading">Seu coach está pensando...</span>';
-            const btn = $('btnNovaIa');
-            if (btn) btn.disabled = true;
+        // ─── COACH MOTIVACIONAL ───────────────────────────
+        // Engine 100% local: funciona offline, sem custo e sem expor credenciais.
+        const NOMES_INIMIGO = {
+            cartao: 'cartão de crédito', impulso: 'compras por impulso',
+            delivery: 'delivery e saídas', parcelamento: 'parcelamentos', cheque: 'cheque especial'
+        };
 
-            const inimigoLabel = {
-                cartao: 'cartão de crédito', impulso: 'compras por impulso',
-                delivery: 'delivery e saídas', parcelamento: 'parcelamentos', cheque: 'cheque especial'
-            }[UD.inimigo || 'impulso'] || 'dívidas';
+        const COACH = {
+            abertura: [
+                'A batalha contra o {inimigo} se vence um dia de cada vez, {nome}. 🦁',
+                '{nome}, o {inimigo} odeia quando você mantém o foco. Continue assim. 💪',
+                'Cada escolha consciente de hoje deixa o {inimigo} mais fraco, {nome}. 🛡️',
+                'Bora, {nome}! Foco no alvo: menos {inimigo}, mais dinheiro guardado. 🔥',
+                '{nome}, disciplina vale mais que motivação — e você está construindo as duas. ⚔️'
+            ],
+            streak: [
+                '{streak} dias seguidos! Sequência é músculo: cada dia fica mais difícil desistir. 🔥',
+                'Uma sequência de {streak} dias? O {inimigo} já está tremendo. 😤',
+                '{streak} dias sem recuar. Isso aí é consistência de verdade, {nome}. 🏅'
+            ],
+            guardado: [
+                'R$ {vault} guardados até agora. Cada real é um tijolo na sua liberdade. 💰',
+                'Seu cofre já tem R$ {vault}. O {inimigo} odeia ver esse número subindo. 😄',
+                'R$ {vault} no cofre! Guarde mais um pouco hoje e sinta a diferença amanhã. 📈'
+            ],
+            desafio: [
+                'Está no meio de: {desafio}. Concentra aí e entrega o resultado. ⚔️',
+                'Seus desafios em cena: {desafio}. Um passo por vez, {nome}. 🐾',
+                'Missão ativa: {desafio}. Conclui e colhe o XP. 🎯'
+            ],
+            vitoria: [
+                '🏆 {nome} venceu o desafio e ficou mais forte contra o {inimigo}. Bola pra frente!',
+                'Vitória registrada, {nome}! Vitórias pequenas constroem vitórias grandes. 🥊',
+                'XP na conta, {nome}! O {inimigo} perdeu terreno hoje. 🗡️',
+                'Mandou bem, {nome}! É assim que se reconstrói o bolso. 👏'
+            ],
+            guardou: [
+                'Depósito registrado! R$ {vault} no TOTAL. É a sua varinha muda contra o {inimigo}. ✨',
+                'Guardando dinheiro é como treinar: um pouco todo dia vira muita coisa. 🏋️',
+                'Mais um tijolo no cofre, {nome}! R$ {vault} e subindo. 🧱'
+            ],
+            fallback: 'Seu coach está por aqui sempre que precisar. Bora, {nome}! 💪'
+        };
 
-            const desafiosAtivos = Object.keys(UD.desafiosAtivos || {}).map(id => DESAFIOS_BASE.find(d => d.id === id)?.nome).filter(Boolean).join(', ') || 'nenhum ainda';
+        const pick = arr => arr[Math.floor(Math.random() * arr.length)];
 
-            const prompts = {
-                geral: `Você é um coach financeiro brasileiro, animado, direto e sem enrolação. 
-Fale com ${san(UD.nome || 'guerreiro')}, nível ${UD.nivel}, que luta contra ${inimigoLabel}, 
-tem ${UD.streak || 0} dias de sequência, guardou R$${(UD.dinheiroGuardado || 0).toFixed(0)} e está nos desafios: ${desafiosAtivos}.
-Crie UMA mensagem curta (2-3 frases), motivadora e divertida. Use gíria brasileira moderada. 
-Fale sobre o desafio específico que ele está enfrentando. Seja engraçado mas honesto.`,
-                vitoria: `Você é um coach financeiro brasileiro celebrando com ${san(UD.nome || 'guerreiro')} que acabou de vencer um desafio financeiro!
-Crie UMA mensagem de celebração curta (2-3 frases), empolgada, com energia de vitória. Use gíria brasileira. 
-Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
+        function coachMsg(contexto = 'geral') {
+            const nome = (UD?.nome || 'Guerreiro').split(' ')[0];
+            const inimigo = NOMES_INIMIGO[UD?.inimigo] || 'Tigrinho';
+            const vars = {
+                nome, inimigo,
+                streak: UD?.streak || 0,
+                vault: Math.round(UD?.dinheiroGuardado || 0).toLocaleString('pt-BR'),
+                desafio: Object.keys(UD?.desafiosAtivos || {})
+                    .map(id => DESAFIOS_BASE.find(d => d.id === id)?.nome).filter(Boolean).join(' · ') || '—'
             };
-
-            try {
-                const resp = await fetch('https://api.anthropic.com/v1/messages', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        model: 'claude-sonnet-4-20250514',
-                        max_tokens: 150,
-                        messages: [{ role: 'user', content: prompts[contexto] || prompts.geral }]
-                    })
-                });
-                const data = await resp.json();
-                const msg = data.content?.map(b => b.text || '').join('') || 'Bora continuar guerreiro! 💪';
-                box.textContent = msg;
-            } catch (e) {
-                box.textContent = 'Seu coach está offline, mas você não precisa dele pra continuar! 💪';
+            const fill = tpl => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? '');
+            let base;
+            if (contexto === 'vitoria' && UD) base = pick(COACH.vitoria);
+            else if (contexto === 'guardou' && UD) base = pick(COACH.guardou);
+            else if (UD) base = pick(COACH.abertura);
+            else base = COACH.fallback;
+            let msg = fill(base);
+            // frase extra contextual (1-3 frases no total)
+            if (contexto === 'geral' && UD) {
+                const extras = [];
+                if ((UD.streak || 0) >= 2) extras.push(pick(COACH.streak));
+                if ((UD.dinheiroGuardado || 0) > 0) extras.push(pick(COACH.guardado));
+                if (Object.keys(UD.desafiosAtivos || {}).length) extras.push(pick(COACH.desafio));
+                if (extras.length) msg += ' ' + fill(pick(extras));
             }
-            if (btn) btn.disabled = false;
+            return msg;
         }
 
-        $('btnNovaIa').onclick = () => { if (canAct('ia', 4000)) gerarMensagemIA(); else flash('Aguarde um momento...', '#F5A623'); };
+        function gerarMensagemIA(contexto = 'geral') {
+            const box = $('iaBox');
+            if (!box) return;
+            box.textContent = coachMsg(contexto);
+        }
+
+        $('btnNovaIa').addEventListener('click', () => {
+            if (canAct('ia', 3000)) gerarMensagemIA();
+            else flash('Aguarde um momento...', 'var(--accent)');
+        });
+
+        // wrapper: transação com fallback amigável de erro (rede/offline)
+        async function withTx(fn) {
+            try {
+                return await runTransaction(db, fn);
+            } catch (e) {
+                console.error('transação falhou:', e);
+                flash('Não foi possível sincronizar. Tente novamente.', 'var(--red)');
+                return null;
+            }
+        }
 
         // ─── PROGRESSO ────────────────────────────────────
         async function updateProgress(xpGain, moneyGain, nota = '') {
             if (!CU || !UD) return;
-            let xp = UD.xpAtual + xpGain;
-            let lvl = UD.nivel;
-            let xpN = UD.xpProximoNivel;
-            while (xp >= xpN) { lvl++; xp -= xpN; xpN = Math.max(200, Math.floor(xpN * 1.3)); }
-            const money = Math.max(0, UD.dinheiroGuardado + moneyGain);
-            const xpT = (UD.xpTotal || 0) + xpGain;
-            let hist = UD.historico || [];
-            if (moneyGain > 0) hist = [...hist, { val: moneyGain, nota, date: new Date().toISOString() }].slice(-100);
-            const patch = { xpAtual: xp, nivel: lvl, xpProximoNivel: xpN, dinheiroGuardado: money, xpTotal: xpT, historico: hist, ultimoAcesso: new Date().toISOString() };
-            await updateDoc(doc(db, 'usuarios', CU.uid), patch);
-            UD = { ...UD, ...patch };
+            const ref = doc(db, 'usuarios', CU.uid);
+            const next = await withTx(async tx => {
+                const snap = await tx.get(ref);
+                const d = snap.exists() ? snap.data() : UD;
+                let xp = (d.xpAtual || 0) + xpGain;
+                let lvl = d.nivel || 1;
+                let xpN = d.xpProximoNivel || XP_BASE;
+                while (xp >= xpN) { lvl++; xp -= xpN; xpN = Math.max(XP_BASE, Math.floor(xpN * 1.3)); }
+                const money = Math.max(0, (d.dinheiroGuardado || 0) + moneyGain);
+                const xpTotal = (d.xpTotal || 0) + xpGain;
+                const patch = {
+                    xpAtual: xp, nivel: lvl, xpProximoNivel: xpN, dinheiroGuardado: money,
+                    xpTotal, ultimoAcesso: new Date().toISOString()
+                };
+                if (moneyGain > 0) {
+                    patch.historico = [...(d.historico || []), { val: moneyGain, nota, date: new Date().toISOString() }].slice(-100);
+                }
+                tx.update(ref, patch);
+                return { ...d, ...patch };
+            });
+            UD = { ...UD, ...next };
             updateUI();
             loadRanking();
         }
 
         // ─── GUARDAR ──────────────────────────────────────
-        $('saveBtn').onclick = async () => {
+        $('saveBtn').addEventListener('click', async () => {
             if (!canAct('save', 1000)) return;
             const val = parseFloat($('saveAmount').value);
             const nota = $('saveNote').value.trim().slice(0, 40);
-            if (isNaN(val) || val <= 0 || val > 100000) { flash('Valor inválido!', '#F5A623'); return; }
+            if (isNaN(val) || val <= 0 || val > 100000) { flash('Valor inválido!', 'var(--accent)'); return; }
             const xp = Math.max(1, Math.floor(val / 10));
             await updateProgress(xp, val, nota || 'Depósito');
             $('saveAmount').value = ''; $('saveNote').value = '';
             flash(`💰 R$${val.toFixed(2)} guardado! +${xp} XP`);
-            if (UD.dinheiroGuardado >= 100) await gerarMensagemIA();
-        };
+            if (UD.dinheiroGuardado >= 100) gerarMensagemIA('guardou');
+        });
 
         // ─── CHEFES ───────────────────────────────────────
         const BOSSES = [
@@ -1361,21 +1672,32 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
             { name: '🛍️ COMPRA POR IMPULSO', maxHp: 200, desc: 'Espere 24h' },
             { name: '⏰ AMANHÃ ETERNO', maxHp: 150, desc: 'Aja hoje' },
         ];
+        const defaultHp = () => BOSSES.map(b => b.maxHp);
+
         async function attackBoss(idx) {
             if (!canAct('boss' + idx, 1000)) return;
-            if (!UD.bossesHealth) UD.bossesHealth = [300, 200, 150];
-            if (UD.bossesHealth[idx] <= 0) return;
-            const dmg = Math.floor(Math.random() * 16) + 10;
-            UD.bossesHealth[idx] = Math.max(0, UD.bossesHealth[idx] - dmg);
-            const died = UD.bossesHealth[idx] === 0;
-            await updateDoc(doc(db, 'usuarios', CU.uid), { bossesHealth: UD.bossesHealth });
-            await updateProgress(died ? 80 : 3, 0);
-            if (died) { flash('💀 CHEFE DERROTADO! +80 XP!'); await gerarMensagemIA('vitoria'); }
-            else flash(`🗡️ -${dmg} HP!`);
+            const ref = doc(db, 'usuarios', CU.uid);
+            const out = await withTx(async tx => {
+                const snap = await tx.get(ref);
+                const d = snap.exists() ? snap.data() : UD;
+                const hp = Array.isArray(d.bossesHealth) ? [...d.bossesHealth] : defaultHp();
+                if (!hp[idx] || hp[idx] <= 0) return null;
+                const dmg = Math.floor(Math.random() * 16) + 10;
+                hp[idx] = Math.max(0, hp[idx] - dmg);
+                tx.update(ref, { bossesHealth: hp });
+                return { hp, dmg, died: hp[idx] === 0 };
+            });
+            if (!out) return;
+            UD.bossesHealth = out.hp;
+            await updateProgress(out.died ? 80 : 3, 0);
+            if (out.died) { flash('💀 CHEFE DERROTADO! +80 XP!'); gerarMensagemIA('vitoria'); }
+            else flash(`🗡️ -${out.dmg} HP!`);
             renderBosses();
+            checkConquistas();
         }
+
         function renderBosses() {
-            if (!UD.bossesHealth) UD.bossesHealth = [300, 200, 150];
+            if (!UD.bossesHealth) UD.bossesHealth = defaultHp();
             const c = $('bossesContainer'); c.innerHTML = '';
             BOSSES.forEach((b, i) => {
                 const hp = UD.bossesHealth[i], pct = Math.max(0, (hp / b.maxHp) * 100), dead = hp <= 0;
@@ -1383,7 +1705,7 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
                 div.innerHTML = `
       <div class="boss-row">
         <strong style="font-size:.9rem">${b.name}</strong>
-        <span style="font-size:.78rem;color:${dead ? '#4ade80' : '#f87171'}">❤️ ${Math.max(0, hp)}/${b.maxHp}</span>
+        <span style="font-size:.78rem;color:${dead ? '#4ade80' : 'var(--red)'}">❤️ ${Math.max(0, hp)}/${b.maxHp}</span>
       </div>
       <div class="boss-hp-bar"><div class="boss-hp-fill" style="width:${pct}%"></div></div>
       <div class="boss-row">
@@ -1392,7 +1714,7 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
       </div>`;
                 c.appendChild(div);
             });
-            c.querySelectorAll('.btn-attack').forEach(b => b.onclick = () => attackBoss(parseInt(b.dataset.i)));
+            c.querySelectorAll('.btn-attack').forEach(b => b.addEventListener('click', () => attackBoss(parseInt(b.dataset.i))));
         }
 
         // ─── CONQUISTAS ───────────────────────────────────
@@ -1413,13 +1735,13 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
             if ((UD.streak || 0) >= 7) earned.add('streak_7');
             if ((UD.totalDesafios || 0) >= 1) earned.add('desafio_1');
             if ((UD.totalDesafios || 0) >= 5) earned.add('desafio_5');
-            if ((UD.bossesHealth || [300, 200, 150]).some(h => h <= 0)) earned.add('boss_kill');
+            if ((UD.bossesHealth || defaultHp()).some(h => h <= 0)) earned.add('boss_kill');
             if (UD.nivel >= 5) earned.add('level_5');
             if (earned.size > prev) {
                 const novo = [...earned].find(e => !(UD.conquistas || []).includes(e));
                 if (novo) { const c = CONQUISTAS.find(x => x.id === novo); flash(`🏅 Conquista: ${c?.name}!`); }
                 UD.conquistas = [...earned];
-                await updateDoc(doc(db, 'usuarios', CU.uid), { conquistas: UD.conquistas });
+                try { await updateDoc(doc(db, 'usuarios', CU.uid), { conquistas: UD.conquistas }); } catch (_) { }
             }
             const w = $('badgesWrap'); w.innerHTML = '';
             CONQUISTAS.forEach(c => {
@@ -1441,25 +1763,38 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
                 ss.forEach(d => {
                     const u = d.data();
                     const m = pos === 1 ? '🥇' : pos === 2 ? '🥈' : pos === 3 ? '🥉' : `${pos}º`;
+                    const isMe = CU && d.id === CU.uid;
+                    const nome = san((u.nome || 'Guerreiro').split(' ')[0].slice(0, 12));
                     const li = document.createElement('li');
-                    li.innerHTML = `${m} Guerreiro #${pos}<span class="rank-xp">Nv.${u.nivel} · ${u.xpTotal || 0} XP</span>`;
+                    if (isMe) li.className = 'me';
+                    li.innerHTML = `${m} ${nome}${isMe ? ' (você)' : ''}<span class="rank-xp">Nv.${u.nivel} · ${u.xpTotal || 0} XP</span>`;
                     list.appendChild(li);
                     pos++;
                 });
-            } catch (e) { }
+                if (!pos || list.children.length === 0) list.innerHTML = '<li style="color:var(--muted)">Ranking vazio por enquanto.</li>';
+            } catch (e) {
+                const list = $('rankList');
+                if (list && list.children.length === 0) list.innerHTML = '<li style="color:var(--muted)">Ranking indisponível agora.</li>';
+            }
         }
 
         // ─── STREAK ───────────────────────────────────────
         async function updateStreak() {
-            const now = today();
-            const last = (UD.ultimoAcesso || '').slice(0, 10);
-            const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-            let s = UD.streak || 0;
-            if (last === now) { }
-            else if (last === yesterday) { s++; }
-            else { s = 1; }
+            const ref = doc(db, 'usuarios', CU.uid);
+            const s = await runTransaction(db, async tx => {
+                const snap = await tx.get(ref);
+                if (!snap.exists()) return UD.streak || 1;
+                const d = snap.data();
+                const now = today();
+                const last = (d.ultimoAcesso || '').slice(0, 10);
+                const yesterday = localDate(-1);
+                let st = d.streak || 0;
+                if (last !== now) st = last === yesterday ? st + 1 : 1;
+                tx.update(ref, { streak: st, ultimoAcesso: new Date().toISOString() });
+                return st;
+            }).catch(() => UD.streak || 1);
             UD.streak = s;
-            await updateDoc(doc(db, 'usuarios', CU.uid), { streak: s, ultimoAcesso: new Date().toISOString() });
+            updateUI();
         }
 
         // ─── UPDATE UI ────────────────────────────────────
@@ -1468,7 +1803,12 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
         function updateUI() {
             if (!UD) return;
             const ai = Math.min(UD.nivel - 1, AVATARS.length - 1);
-            $('userAvatar').textContent = AVATARS[ai];
+            const av = $('userAvatar');
+            if (CU?.photoURL) {
+                av.innerHTML = `<img src="${san(CU.photoURL)}" alt="" referrerpolicy="no-referrer">`;
+            } else {
+                av.textContent = AVATARS[ai];
+            }
             $('userName').textContent = san((UD.nome || '').slice(0, 25));
             $('userClass').textContent = CLASSES[ai] || 'Lenda';
             $('xpLabel').textContent = `${UD.xpAtual} / ${UD.xpProximoNivel} XP`;
@@ -1479,7 +1819,9 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
             // histórico
             const hist = (UD.historico || []).slice().reverse().slice(0, 20);
             const hl = $('histList');
-            hl.innerHTML = hist.length ? hist.map(h => `<li><span>${san(h.nota || 'Depósito')}</span><span style="color:var(--green)">+R$${(+h.val).toFixed(2)}</span></li>`).join('') : `<li style="color:var(--muted)">Nenhum depósito ainda.</li>`;
+            hl.innerHTML = hist.length
+                ? hist.map(h => `<li><span>${san(h.nota || 'Depósito')}<span class="hist-date">${(h.date || '').slice(8, 10)}/${(h.date || '').slice(5, 7)}</span></span><span style="color:var(--green)">+R$${(+h.val).toFixed(2)}</span></li>`).join('')
+                : `<li style="color:var(--muted)">Nenhum depósito ainda.</li>`;
         }
 
         // ─── LOAD USER ────────────────────────────────────
@@ -1489,13 +1831,11 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
             const nome = (displayName || 'Guerreiro').slice(0, 30).replace(/[<>&"']/g, '');
             if (snap.exists()) {
                 UD = snap.data();
-                if (!UD.bossesHealth) UD.bossesHealth = [300, 200, 150];
-                if (!UD.conquistas) UD.conquistas = [];
-                if (!UD.historico) UD.historico = [];
-                if (!UD.desafiosAtivos) UD.desafiosAtivos = {};
-                if (!UD.desafiosConcluidos) UD.desafiosConcluidos = [];
+                UD.bossesHealth = Array.isArray(UD.bossesHealth) ? UD.bossesHealth : defaultHp();
+                for (const k of ['conquistas', 'historico', 'desafiosConcluidos']) if (!Array.isArray(UD[k])) UD[k] = [];
+                if (typeof UD.desafiosAtivos !== 'object' || UD.desafiosAtivos === null) UD.desafiosAtivos = {};
                 if (!UD.totalDesafios) UD.totalDesafios = 0;
-                // salvar dados do onboarding se novo
+                // salvar dados do onboarding se ainda não existem
                 if (OB.inimigo && !UD.inimigo) {
                     UD.inimigo = OB.inimigo; UD.divida = OB.divida; UD.tempo = OB.tempo;
                     await updateDoc(ref, { inimigo: OB.inimigo, divida: OB.divida, tempo: OB.tempo });
@@ -1503,8 +1843,8 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
             } else {
                 const now = new Date().toISOString();
                 UD = {
-                    uid, email, nome, dataCriacao: now, plano: 'free', nivel: 1, xpTotal: 0, xpAtual: 0, xpProximoNivel: 200,
-                    dinheiroGuardado: 0, conquistas: [], streak: 1, ultimoAcesso: now, bossesHealth: [300, 200, 150],
+                    uid, email, nome, dataCriacao: now, plano: 'free', nivel: 1, xpTotal: 0, xpAtual: 0, xpProximoNivel: XP_BASE,
+                    dinheiroGuardado: 0, conquistas: [], streak: 1, ultimoAcesso: now, bossesHealth: defaultHp(),
                     historico: [], desafiosAtivos: {}, desafiosConcluidos: [], totalDesafios: 0,
                     inimigo: OB.inimigo, divida: OB.divida, tempo: OB.tempo
                 };
@@ -1519,33 +1859,56 @@ Mencione que ele está ficando mais forte contra o ${inimigoLabel}.`
             gerarMensagemIA();
         }
 
-        // ─── AUTH ──────────────────────────────────────── 
-        $('btnEntrar').onclick = () => show('onboardingScreen');
+        // ─── AUTH ────────────────────────────────────────
+        $('btnEntrar').addEventListener('click', () => show('onboardingScreen'));
 
-        $('loginGoogleBtn').onclick = async () => {
+        $('loginGoogleBtn').addEventListener('click', async () => {
+            const btn = $('loginGoogleBtn');
+            if (btn.disabled) return;
+            btn.disabled = true;
             try {
-                const r = await signInWithPopup(auth, prov);
-                CU = r.user;
-                await loadUser(CU.uid, CU.email, CU.displayName);
-                show('appScreen');
-            } catch (e) { console.error(e); flash('Erro ao fazer login. Tente novamente.', '#e03a3a'); }
-        };
+                await signInWithPopup(auth, prov);
+                // onAuthStateChanged cuida do carregamento do usuário
+            } catch (e) {
+                if (e?.code !== 'auth/popup-closed-by-user') {
+                    console.error(e);
+                    flash('Erro ao fazer login. Tente novamente.', 'var(--red)');
+                }
+            } finally {
+                btn.disabled = false;
+            }
+        });
 
-        $('logoutBtn').onclick = async () => {
+        $('logoutBtn').addEventListener('click', async () => {
             await signOut(auth);
             CU = null; UD = null;
             show('entradaScreen');
-        };
+        });
 
         onAuthStateChanged(auth, async user => {
             if (user) {
+                if (CU?.uid === user.uid && UD) return; // já carregado
                 CU = user;
-                await loadUser(CU.uid, CU.email, CU.displayName);
-                show('appScreen');
+                try {
+                    await loadUser(CU.uid, CU.email, CU.displayName);
+                    show('appScreen');
+                } catch (e) {
+                    console.error(e);
+                    flash('Não foi possível carregar seus dados.', 'var(--red)');
+                    show('loginScreen');
+                }
             } else {
+                CU = null; UD = null;
                 show('entradaScreen');
             }
         });
+    </script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("sw.js").catch(() => { });
+            });
+        }
     </script>
 </body>
 
