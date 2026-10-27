@@ -27,6 +27,10 @@ O objetivo não é prometer resultados financeiros, mas **incentivar escolhas ma
 | 🏆 **Ranking global** | Top 10 guerreiros por XP total, com sua posição destacada |
 | 🤖 **Coach** | Mensagens motivacionais contextuais (nome, streak, saldo, desafios) geradas 100% no dispositivo |
 | 🛡️ **Classes** | Recruta → Soldado → Guerreiro → Caçador → Dragão → Lenda (avatar evolui com o nível) |
+| 📊 **Painel financeiro** | Registro de receitas e despesas, resumo mensal, dívidas, contas a pagar e metas de economia |
+| 📈 **Relatórios e previsão** | Gráfico de receitas/despesas dos últimos seis meses, categorias com maior gasto e projeção baseada no ritmo do mês |
+| 🗓️ **Calendário financeiro** | Visualização de movimentações e vencimentos por dia |
+| 🔔 **Alertas de contas** | Avisos no app e notificações do navegador para contas próximas do vencimento enquanto o app estiver aberto |
 
 ## 🚀 Tecnologias
 
@@ -68,7 +72,7 @@ Configuração de projeto em `firebase.json` + `.firebaserc`. Login com Google e
 ├── index.html              # app completo: telas, estilos e lógica
 ├── manifest.webmanifest    # identidade PWA
 ├── sw.js                   # service worker (cache: rede primeiro, offline como reserva)
-├── firestore.rules         # segurança: cada usuário só escreve no próprio documento
+├── firestore.rules         # dados privados por usuário e ranking público minimizado
 ├── firebase.json           # config de deploy (hosting + rules)
 ├── .firebaserc             # projeto Firebase (quita-mais-app)
 └── icons/                  # ícones 192 / 512 / maskable
@@ -79,20 +83,16 @@ Configuração de projeto em `firebase.json` + `.firebaserc`. Login com Google e
 - **Escritas atômicas**: XP, saldo, streak, chefes e desafios atualizados via `runTransaction` — não perde dados com duas abas abertas.
 - **Coach local**: nenhuma chamada a APIs de IA — mensagens variadas por contexto (geral, vitória, depósito), sem custo e sem chaves.
 - **Fuso local**: streak calculado no horário do dispositivo (não UTC), correto para o Brasil.
+- **Finanças pessoais**: movimentações, dívidas, contas e metas salvas no documento privado do próprio usuário no Firestore; transferências para metas não são contabilizadas como despesa.
+- **Previsões**: estimativas simples baseadas nos valores registrados no mês, não são aconselhamento financeiro nem garantem resultados.
 - **Cache inteligente**: páginas sempre da rede (com fallback offline); assets cacheados.
 
 ## 🔒 Privacidade e segurança
 
-- Cada usuário **só escreve no próprio documento** do Firestore (`firestore.rules`)
+- Cada usuário **só lê e escreve no próprio documento privado** do Firestore (`usuarios/{uid}`)
+- O ranking fica separado em `ranking/{uid}` e publica somente nome, nível e XP
 - Nenhuma credencial privada no cliente — apenas a config pública do SDK do Firebase, protegida pelas regras
-- O ranking expõe apenas nome, nível e XP
-
-## 🗺️ Roadmap
-
-- [ ] Gráficos de evolução do saldo
-- [ ] Meta financeira com barra de progresso dedicada
-- [ ] Lembretes (notification API) para o desafio do dia
-- [ ] Modo claro
+- Notificações de contas são exibidas pelo navegador quando o app está aberto e a permissão foi autorizada
 
 ## 👤 Autor
 

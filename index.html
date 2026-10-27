@@ -504,6 +504,23 @@
             border-color: var(--red);
         }
 
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .btn-sound {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: .95rem;
+        }
+
         /* user bar */
         .user-bar {
             background: var(--surface);
@@ -590,6 +607,226 @@
         .stat-lbl {
             font-size: .65rem;
             color: var(--muted);
+        }
+
+        .finance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .55rem;
+            margin-bottom: .85rem;
+        }
+
+        .finance-metric {
+            min-width: 0;
+            padding: .8rem;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--surface2);
+        }
+
+        .finance-metric span {
+            display: block;
+            color: var(--muted);
+            font-size: .72rem;
+        }
+
+        .finance-metric strong {
+            display: block;
+            margin-top: .2rem;
+            overflow-wrap: anywhere;
+            color: var(--text);
+            font-family: var(--title);
+            font-size: 1.05rem;
+        }
+
+        .finance-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .5rem;
+            margin: .75rem 0;
+        }
+
+        .finance-form .app-input {
+            width: 100%;
+            min-width: 0;
+        }
+
+        .finance-form .finance-wide {
+            grid-column: 1 / -1;
+        }
+
+        .finance-btn,
+        .finance-small-btn {
+            min-height: 2.5rem;
+            padding: .55rem .85rem;
+            border: 1px solid rgba(52, 211, 153, .35);
+            border-radius: 12px;
+            background: var(--brand-soft);
+            color: #6EE7B7;
+            font-family: var(--body);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .finance-small-btn {
+            min-height: 2rem;
+            padding: .35rem .65rem;
+            font-size: .76rem;
+        }
+
+        .finance-list {
+            display: grid;
+            gap: .5rem;
+            margin-top: .75rem;
+        }
+
+        .finance-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .6rem;
+            padding: .65rem .75rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface2);
+            font-size: .82rem;
+        }
+
+        .finance-list-item small {
+            display: block;
+            margin-top: .15rem;
+            color: var(--muted);
+            font-size: .7rem;
+        }
+
+        .finance-list-item .finance-item-main {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .finance-list-item .finance-item-actions {
+            display: flex;
+            flex: none;
+            gap: .3rem;
+        }
+
+        .finance-positive {
+            color: #4ade80;
+        }
+
+        .finance-negative {
+            color: var(--red);
+        }
+
+        .finance-alert {
+            margin: .5rem 0;
+            padding: .7rem .8rem;
+            border: 1px solid rgba(245, 166, 35, .35);
+            border-radius: 12px;
+            background: var(--accent-soft);
+            color: #fbbf24;
+            font-size: .8rem;
+        }
+
+        .finance-alert.good {
+            border-color: rgba(52, 211, 153, .3);
+            background: var(--brand-soft);
+            color: #6EE7B7;
+        }
+
+        .finance-subtitle {
+            margin: 1rem 0 .4rem;
+            color: var(--text);
+            font-family: var(--title);
+            font-size: 1rem;
+        }
+
+        .finance-chart-wrap {
+            min-height: 190px;
+            padding: .5rem 0;
+        }
+
+        #financeChart {
+            width: 100%;
+            height: 190px;
+            display: block;
+        }
+
+        .finance-chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--muted);
+            font-size: .72rem;
+        }
+
+        .finance-calendar-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+        }
+
+        .finance-calendar-head h3 {
+            color: var(--text);
+            font-family: var(--title);
+            font-size: 1rem;
+            text-transform: capitalize;
+        }
+
+        .finance-calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: .25rem;
+            margin-top: .65rem;
+            text-align: center;
+        }
+
+        .finance-calendar-grid span {
+            padding: .35rem .1rem;
+            border-radius: 8px;
+            color: var(--muted);
+            font-size: .68rem;
+        }
+
+        .finance-calendar-grid .calendar-day {
+            position: relative;
+            color: var(--text);
+            font-size: .74rem;
+        }
+
+        .finance-calendar-grid .calendar-day.has-event::after {
+            position: absolute;
+            right: 3px;
+            bottom: 1px;
+            left: 3px;
+            height: 3px;
+            border-radius: 3px;
+            background: var(--brand);
+            content: "";
+        }
+
+        .finance-calendar-grid .calendar-day.has-bill::after {
+            background: var(--accent);
+        }
+
+        .finance-calendar-grid .calendar-day.today {
+            outline: 1px solid var(--brand);
+        }
+
+        .finance-goal-progress {
+            height: 7px;
+            margin-top: .4rem;
+            overflow: hidden;
+            border-radius: 8px;
+            background: rgba(255,255,255,.1);
+        }
+
+        .finance-goal-progress span {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--brand-dark), var(--brand));
         }
 
         /* section card */
@@ -987,6 +1224,61 @@
             text-align: center;
         }
 
+        .celebration {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            display: grid;
+            place-items: center;
+            padding: 1.5rem;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .2s ease, visibility .2s ease;
+            pointer-events: none;
+        }
+
+        .celebration.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .celebration-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .celebration-message {
+            position: relative;
+            width: min(100%, 440px);
+            padding: 1.5rem 1.25rem;
+            border: 1px solid rgba(245, 166, 35, .55);
+            border-radius: 24px;
+            background: rgba(11, 18, 32, .92);
+            box-shadow: 0 0 55px rgba(245, 166, 35, .2);
+            text-align: center;
+            transform: scale(.92);
+            transition: transform .25s ease;
+        }
+
+        .celebration.visible .celebration-message {
+            transform: scale(1);
+        }
+
+        .celebration-title {
+            color: var(--accent);
+            font-family: var(--title);
+            font-size: clamp(1.35rem, 6vw, 2rem);
+            line-height: 1.2;
+        }
+
+        .celebration-subtitle {
+            margin-top: .55rem;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
         /* noscript */
         .noscript-banner {
             position: fixed;
@@ -1028,6 +1320,14 @@
             .money-input-row .app-input {
                 min-width: 0;
             }
+
+            .finance-form {
+                grid-template-columns: 1fr;
+            }
+
+            .finance-form .finance-wide {
+                grid-column: auto;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1039,6 +1339,15 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: .01ms !important;
             }
+
+            .celebration {
+                transition: none;
+            }
+
+            .celebration-message {
+                transform: none;
+                transition: none;
+            }
         }
     </style>
 </head>
@@ -1046,6 +1355,13 @@
 <body>
 
     <div class="flash" id="flash" role="status" aria-live="polite"></div>
+    <div class="celebration" id="celebration" role="status" aria-live="polite" aria-hidden="true">
+        <canvas class="celebration-canvas" id="celebrationCanvas" aria-hidden="true"></canvas>
+        <div class="celebration-message">
+            <div class="celebration-title" id="celebrationTitle"></div>
+            <div class="celebration-subtitle" id="celebrationSubtitle"></div>
+        </div>
+    </div>
 
     <noscript>
         <div class="noscript-banner">
@@ -1151,7 +1467,10 @@
 
             <div class="top-bar">
                 <div class="app-logo">📈 Quita+</div>
-                <button class="btn-logout" id="logoutBtn">Sair</button>
+                <div class="top-actions">
+                    <button class="btn-sound" id="soundToggle" type="button" aria-label="Desativar sons" aria-pressed="true" title="Desativar sons">🔊</button>
+                    <button class="btn-logout" id="logoutBtn">Sair</button>
+                </div>
             </div>
 
             <!-- user -->
@@ -1182,6 +1501,87 @@
                     <div class="stat-lbl">⚔️ Desafios</div>
                 </div>
             </div>
+
+            <section class="card" aria-labelledby="financeTitle">
+                <div class="card-title" id="financeTitle">📊 SEU PAINEL FINANCEIRO</div>
+                <div id="financeAlerts" aria-live="polite"></div>
+                <div class="finance-grid" id="financeSummary"></div>
+
+                <h3 class="finance-subtitle">Registrar receita ou despesa</h3>
+                <form class="finance-form" id="transactionForm">
+                    <label class="sr" for="transactionType">Tipo de movimentação</label>
+                    <select class="app-input" id="transactionType">
+                        <option value="income">Receita</option>
+                        <option value="expense">Despesa</option>
+                    </select>
+                    <label class="sr" for="transactionAmount">Valor em reais</label>
+                    <input class="app-input" id="transactionAmount" type="number" min="0.01" step="0.01" placeholder="Valor (R$)" required>
+                    <label class="sr" for="transactionCategory">Categoria</label>
+                    <select class="app-input" id="transactionCategory">
+                        <option>Salário</option><option>Freelance</option><option>Moradia</option>
+                        <option>Alimentação</option><option>Transporte</option><option>Saúde</option>
+                        <option>Educação</option><option>Lazer</option><option>Contas</option><option>Outros</option>
+                    </select>
+                    <label class="sr" for="transactionDate">Data</label>
+                    <input class="app-input" id="transactionDate" type="date" required>
+                    <label class="sr" for="transactionNote">Descrição</label>
+                    <input class="app-input finance-wide" id="transactionNote" type="text" maxlength="60" placeholder="Descrição (opcional)">
+                    <button class="finance-btn finance-wide" type="submit">Adicionar movimentação</button>
+                </form>
+                <div class="finance-list" id="transactionList" aria-label="Movimentações recentes"></div>
+
+                <h3 class="finance-subtitle">Dívidas</h3>
+                <form class="finance-form" id="debtForm">
+                    <label class="sr" for="debtName">Nome da dívida</label>
+                    <input class="app-input" id="debtName" type="text" maxlength="50" placeholder="Ex.: Cartão" required>
+                    <label class="sr" for="debtAmount">Valor total da dívida</label>
+                    <input class="app-input" id="debtAmount" type="number" min="0.01" step="0.01" placeholder="Saldo devedor (R$)" required>
+                    <label class="sr" for="debtDueDate">Vencimento</label>
+                    <input class="app-input" id="debtDueDate" type="date">
+                    <button class="finance-btn" type="submit">Adicionar dívida</button>
+                </form>
+                <div class="finance-list" id="debtList"></div>
+
+                <h3 class="finance-subtitle">Lembretes de contas</h3>
+                <form class="finance-form" id="billForm">
+                    <label class="sr" for="billName">Nome da conta</label>
+                    <input class="app-input" id="billName" type="text" maxlength="50" placeholder="Ex.: Internet" required>
+                    <label class="sr" for="billAmount">Valor da conta</label>
+                    <input class="app-input" id="billAmount" type="number" min="0.01" step="0.01" placeholder="Valor (R$)" required>
+                    <label class="sr" for="billDueDate">Data de vencimento</label>
+                    <input class="app-input" id="billDueDate" type="date" required>
+                    <button class="finance-btn" type="submit">Criar lembrete</button>
+                </form>
+                <button class="finance-small-btn" id="notificationButton" type="button">Ativar notificações</button>
+                <div class="finance-list" id="billList"></div>
+
+                <h3 class="finance-subtitle">Metas de economia</h3>
+                <form class="finance-form" id="goalForm">
+                    <label class="sr" for="goalName">Nome da meta</label>
+                    <input class="app-input" id="goalName" type="text" maxlength="50" placeholder="Ex.: Reserva" required>
+                    <label class="sr" for="goalTarget">Valor alvo da meta</label>
+                    <input class="app-input" id="goalTarget" type="number" min="0.01" step="0.01" placeholder="Meta (R$)" required>
+                    <label class="sr" for="goalDueDate">Prazo da meta</label>
+                    <input class="app-input" id="goalDueDate" type="date">
+                    <button class="finance-btn" type="submit">Criar meta</button>
+                </form>
+                <div class="finance-list" id="goalList"></div>
+
+                <h3 class="finance-subtitle">Relatório e previsão</h3>
+                <div id="financeReport"></div>
+                <div class="finance-chart-wrap">
+                    <canvas id="financeChart" role="img" aria-label="Gráfico de receitas e despesas nos últimos seis meses"></canvas>
+                </div>
+                <div class="finance-chart-legend"><span class="finance-positive">● Receitas</span><span class="finance-negative">● Despesas</span></div>
+
+                <div class="finance-calendar-head" style="margin-top:1rem">
+                    <button class="finance-small-btn" id="calendarPrev" type="button" aria-label="Mês anterior">‹</button>
+                    <h3 id="calendarTitle"></h3>
+                    <button class="finance-small-btn" id="calendarNext" type="button" aria-label="Próximo mês">›</button>
+                </div>
+                <div class="finance-calendar-grid" id="financeCalendar" aria-label="Calendário financeiro"></div>
+                <div class="finance-list" id="calendarEvents"></div>
+            </section>
 
             <!-- Coach motivacional -->
             <div class="card">
@@ -1304,10 +1704,146 @@
             el._t = setTimeout(() => { el.style.display = 'none'; }, 2800);
         }
 
+        let soundEnabled = true;
+        let celebrationAudio;
+        let celebrationFrame = 0;
+        let celebrationTimer;
+
+        function prepareCelebrationSound() {
+            if (!soundEnabled || !window.AudioContext) return;
+            try {
+                if (!celebrationAudio) celebrationAudio = new AudioContext();
+                if (celebrationAudio.state === 'suspended') {
+                    celebrationAudio.resume().catch(error => console.warn('Não foi possível iniciar o som:', error));
+                }
+            } catch (error) {
+                console.warn('Áudio de comemoração indisponível:', error);
+            }
+        }
+
+        function playPop() {
+            if (!soundEnabled || !celebrationAudio || celebrationAudio.state !== 'running') return;
+            const now = celebrationAudio.currentTime;
+            const oscillator = celebrationAudio.createOscillator();
+            const volume = celebrationAudio.createGain();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(130, now);
+            oscillator.frequency.exponentialRampToValueAtTime(38, now + .22);
+            volume.gain.setValueAtTime(.0001, now);
+            volume.gain.exponentialRampToValueAtTime(.24, now + .015);
+            volume.gain.exponentialRampToValueAtTime(.0001, now + .3);
+            oscillator.connect(volume);
+            volume.connect(celebrationAudio.destination);
+            oscillator.start(now);
+            oscillator.stop(now + .31);
+        }
+
+        function playFireworksSound() {
+            playPop();
+            [220, 520, 850].forEach(delay => setTimeout(() => {
+                if (soundEnabled) playPop();
+            }, delay));
+        }
+
+        function launchFireworks() {
+            const canvas = $('celebrationCanvas');
+            const context = canvas?.getContext('2d');
+            if (!canvas || !context || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const ratio = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.floor(window.innerWidth * ratio);
+            canvas.height = Math.floor(window.innerHeight * ratio);
+            context.scale(ratio, ratio);
+            const particles = [];
+            const colors = ['#34D399', '#F5A623', '#F87171', '#60A5FA', '#F9A8D4'];
+            const startedAt = performance.now();
+            let lastBurst = 0;
+
+            function burst() {
+                const x = window.innerWidth * (.15 + Math.random() * .7);
+                const y = window.innerHeight * (.12 + Math.random() * .48);
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                for (let i = 0; i < 48; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = 1.2 + Math.random() * 4;
+                    particles.push({
+                        x, y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        life: 1,
+                        color
+                    });
+                }
+            }
+
+            function draw(now) {
+                context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                if (now - startedAt < 2800 && now - lastBurst > 380) {
+                    burst();
+                    lastBurst = now;
+                }
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += .035;
+                    p.life -= .012;
+                    if (p.life <= 0) {
+                        particles.splice(i, 1);
+                        continue;
+                    }
+                    context.globalAlpha = p.life;
+                    context.fillStyle = p.color;
+                    context.fillRect(p.x, p.y, 3, 3);
+                }
+                context.globalAlpha = 1;
+                if (now - startedAt < 3800 || particles.length) {
+                    celebrationFrame = requestAnimationFrame(draw);
+                } else {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    celebrationFrame = 0;
+                }
+            }
+
+            celebrationFrame = requestAnimationFrame(draw);
+        }
+
+        function celebrate(title, subtitle, sound = 'fireworks', duration = 4200) {
+            const panel = $('celebration');
+            if (!panel) return;
+            clearTimeout(celebrationTimer);
+            if (celebrationFrame) cancelAnimationFrame(celebrationFrame);
+            panel.classList.add('visible');
+            panel.setAttribute('aria-hidden', 'false');
+            $('celebrationTitle').textContent = title;
+            $('celebrationSubtitle').textContent = subtitle;
+            if (sound === 'fireworks') {
+                launchFireworks();
+                playFireworksSound();
+            } else if (sound === 'pop') {
+                playPop();
+            }
+            celebrationTimer = setTimeout(() => {
+                panel.classList.remove('visible');
+                panel.setAttribute('aria-hidden', 'true');
+            }, duration);
+        }
+
+        $('soundToggle').addEventListener('click', event => {
+            soundEnabled = !soundEnabled;
+            const button = event.currentTarget;
+            button.textContent = soundEnabled ? '🔊' : '🔇';
+            button.setAttribute('aria-pressed', String(soundEnabled));
+            button.setAttribute('aria-label', soundEnabled ? 'Desativar sons' : 'Ativar sons');
+            button.title = soundEnabled ? 'Desativar sons' : 'Ativar sons';
+            if (soundEnabled) prepareCelebrationSound();
+        });
+
         function show(id) {
             ['entradaScreen', 'onboardingScreen', 'loginScreen', 'appScreen']
                 .forEach(s => { const el = $(s); if (el) el.classList.remove('active'); });
             $(id).classList.add('active');
+            if (id === 'appScreen') requestAnimationFrame(() => { if (UD) drawFinanceChart(); });
             window.scrollTo({ top: 0 });
         }
 
@@ -1463,6 +1999,7 @@
             if (!canAct('aceitar_' + id)) return;
             const def = DESAFIOS_BASE.find(d => d.id === id);
             if (!def) return;
+            prepareCelebrationSound();
             const ref = doc(db, 'usuarios', CU.uid);
             const out = await withTx(async tx => {
                 const snap = await tx.get(ref);
@@ -1478,6 +2015,7 @@
             if (out.limit) { flash('Máximo 3 desafios simultâneos!', 'var(--accent)'); return; }
             UD.desafiosAtivos = out.ativos;
             flash(`Desafio aceito: ${def.nome} ⚔️`);
+            celebrate(`💥 ${UD.nome || CU.displayName || 'Guerreiro'}!`, `Desafio aceito: ${def.nome}`, 'pop', 2200);
             gerarMensagemIA();
             renderDesafios();
         }
@@ -1486,6 +2024,7 @@
             if (!canAct('concluir_' + id)) return;
             const def = DESAFIOS_BASE.find(d => d.id === id);
             if (!def) return;
+            prepareCelebrationSound();
             const ref = doc(db, 'usuarios', CU.uid);
             const out = await withTx(async tx => {
                 const snap = await tx.get(ref);
@@ -1506,6 +2045,7 @@
             UD.totalDesafios = out.totalDesafios;
             await updateProgress(def.xp, 0, `Desafio: ${def.nome}`);
             flash(`🏆 DESAFIO VENCIDO! +${def.xp} XP!`);
+            celebrate(`🎆 PARABÉNS, ${UD.nome || CU.displayName || 'Guerreiro'}! 🥂`, `Você venceu: ${def.nome}`);
             gerarMensagemIA('vitoria');
             renderDesafios();
             checkConquistas();
@@ -1629,6 +2169,7 @@
         async function updateProgress(xpGain, moneyGain, nota = '') {
             if (!CU || !UD) return;
             const ref = doc(db, 'usuarios', CU.uid);
+            const rankRef = doc(db, 'ranking', CU.uid);
             const next = await withTx(async tx => {
                 const snap = await tx.get(ref);
                 const d = snap.exists() ? snap.data() : UD;
@@ -1646,6 +2187,12 @@
                     patch.historico = [...(d.historico || []), { val: moneyGain, nota, date: new Date().toISOString() }].slice(-100);
                 }
                 tx.update(ref, patch);
+                tx.set(rankRef, {
+                    nome: (CU.displayName || d.nome || 'Guerreiro').slice(0, 30),
+                    nivel: lvl,
+                    xpTotal,
+                    atualizadoEm: new Date().toISOString()
+                });
                 return { ...d, ...patch };
             });
             UD = { ...UD, ...next };
@@ -1676,6 +2223,7 @@
 
         async function attackBoss(idx) {
             if (!canAct('boss' + idx, 1000)) return;
+            prepareCelebrationSound();
             const ref = doc(db, 'usuarios', CU.uid);
             const out = await withTx(async tx => {
                 const snap = await tx.get(ref);
@@ -1690,7 +2238,11 @@
             if (!out) return;
             UD.bossesHealth = out.hp;
             await updateProgress(out.died ? 80 : 3, 0);
-            if (out.died) { flash('💀 CHEFE DERROTADO! +80 XP!'); gerarMensagemIA('vitoria'); }
+            if (out.died) {
+                flash('💀 CHEFE DERROTADO! +80 XP!');
+                celebrate(`🎆 PARABÉNS, ${UD.nome || CU.displayName || 'Guerreiro'}! 🥂`, `Você superou o obstáculo: ${BOSSES[idx].name}`);
+                gerarMensagemIA('vitoria');
+            }
             else flash(`🗡️ -${out.dmg} HP!`);
             renderBosses();
             checkConquistas();
@@ -1756,7 +2308,7 @@
         // ─── RANKING ──────────────────────────────────────
         async function loadRanking() {
             try {
-                const q = query(collection(db, 'usuarios'), orderBy('xpTotal', 'desc'), limit(10));
+                const q = query(collection(db, 'ranking'), orderBy('xpTotal', 'desc'), limit(10));
                 const ss = await getDocs(q);
                 const list = $('rankList'); list.innerHTML = '';
                 let pos = 1;
@@ -1797,6 +2349,570 @@
             updateUI();
         }
 
+        const financeMoney = value => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value || 0);
+        const financeDateLabel = value => {
+            if (!value) return 'Sem data';
+            const date = new Date(`${value}T12:00:00`);
+            return Number.isNaN(date.getTime()) ? 'Data inválida' : date.toLocaleDateString('pt-BR');
+        };
+        const makeFinanceId = () => globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        let calendarMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
+        let selectedCalendarDate = today();
+
+        function financeRows() {
+            return Array.isArray(UD?.movimentacoesFinanceiras) ? UD.movimentacoesFinanceiras : [];
+        }
+
+        function monthKey(date) {
+            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+        }
+
+        function monthRows(key) {
+            return financeRows().filter(item => typeof item.data === 'string' && item.data.slice(0, 7) === key);
+        }
+
+        function sumTransactions(rows, type) {
+            return rows.reduce((sum, item) => item.tipo === type ? sum + (Number(item.valor) || 0) : sum, 0);
+        }
+
+        const TRANSACTION_CATEGORIES = {
+            income: ['Salário', 'Freelance', 'Investimentos', 'Reembolso', 'Outros'],
+            expense: ['Moradia', 'Alimentação', 'Transporte', 'Saúde', 'Educação', 'Lazer', 'Contas', 'Pagamento de dívida', 'Outros']
+        };
+
+        function renderTransactionCategories() {
+            const select = $('transactionCategory');
+            select.innerHTML = TRANSACTION_CATEGORIES[$('transactionType').value]
+                .map(category => `<option>${san(category)}</option>`).join('');
+        }
+
+        async function mutateFinance(mutator) {
+            if (!CU || !UD) return false;
+            const ref = doc(db, 'usuarios', CU.uid);
+            const result = await withTx(async tx => {
+                const snapshot = await tx.get(ref);
+                if (!snapshot.exists()) throw new Error('Os dados financeiros do usuário não foram encontrados.');
+                const current = snapshot.data();
+                const patch = mutator(current);
+                if (!Object.keys(patch).length) return { updated: current, changed: false };
+                tx.update(ref, patch);
+                return { updated: { ...current, ...patch }, changed: true };
+            });
+            if (!result?.changed) return false;
+            UD = { ...UD, ...result.updated };
+            updateUI();
+            return true;
+        }
+
+        function monthTitle(date) {
+            return date.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+        }
+
+        function renderFinanceAlerts() {
+            const panel = $('financeAlerts');
+            const bills = Array.isArray(UD.contas) ? UD.contas : [];
+            const pending = bills.filter(bill => !bill.pago && bill.vencimento);
+            const debts = (Array.isArray(UD.dividas) ? UD.dividas : []).filter(debt => debt.saldo > 0 && debt.vencimento);
+            const todayDate = new Date(`${today()}T12:00:00`);
+            const alerts = [...pending, ...debts.map(debt => ({
+                nome: `Dívida: ${debt.nome}`,
+                valor: debt.saldo,
+                vencimento: debt.vencimento
+            }))].map(bill => {
+                const due = new Date(`${bill.vencimento}T12:00:00`);
+                return { bill, days: Math.round((due - todayDate) / 86400000) };
+            }).filter(item => item.days <= 3).sort((a, b) => a.days - b.days);
+            const current = monthRows(monthKey(new Date()));
+            const income = sumTransactions(current, 'income');
+            const expenses = sumTransactions(current, 'expense');
+            const currentDay = new Date().getDate();
+            const monthLength = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+            const forecast = currentDay ? expenses / currentDay * monthLength : expenses;
+            const categoryTotals = {};
+            current.filter(item => item.tipo === 'expense').forEach(item => {
+                categoryTotals[item.categoria] = (categoryTotals[item.categoria] || 0) + (Number(item.valor) || 0);
+            });
+            const topCategory = Object.entries(categoryTotals).sort((a, b) => b[1] - a[1])[0]?.[0];
+            const challengeByCategory = {
+                Alimentação: 'd_delivery_1',
+                Lazer: 'd_bar',
+                Transporte: 'd_ifood',
+                'Pagamento de dívida': 'd_cartao_min'
+            };
+            const suggestedId = challengeByCategory[topCategory];
+            const suggestedChallenge = DESAFIOS_BASE.find(challenge =>
+                challenge.id === suggestedId
+                && !UD.desafiosAtivos?.[challenge.id]
+                && !(UD.desafiosConcluidos || []).includes(challenge.id)
+            );
+            const messages = alerts.slice(0, 3).map(({ bill, days }) => {
+                const when = days < 0 ? `atrasada há ${Math.abs(days)} dia(s)` : days === 0 ? 'vence hoje' : `vence em ${days} dia(s)`;
+                return `<div class="finance-alert">⏰ ${san(bill.nome)} ${when} — ${financeMoney(bill.valor)}</div>`;
+            });
+            if (expenses > 0 && forecast > income) {
+                messages.push('<div class="finance-alert">📣 No ritmo atual, suas despesas podem superar as receitas deste mês. Confira seu relatório e ajuste o que for possível.</div>');
+            } else if (income > 0 && expenses > 0 && forecast <= income) {
+                messages.push('<div class="finance-alert good">🌱 Seu ritmo atual de despesas está dentro das receitas registradas neste mês.</div>');
+            }
+            if (suggestedChallenge && Object.keys(UD.desafiosAtivos || {}).length < BOSS_MAX) {
+                messages.push(`<div class="finance-alert good">🎯 Sua categoria com mais despesas é ${san(topCategory)}. Que tal um desafio para praticar? <button class="finance-small-btn" data-suggested-challenge="${suggestedChallenge.id}" type="button">Aceitar ${san(suggestedChallenge.nome)}</button></div>`);
+            }
+            panel.innerHTML = messages.join('') || '<div class="finance-alert good">✨ Sem contas próximas do vencimento. Continue registrando suas movimentações para acompanhar o mês.</div>';
+        }
+
+        function renderFinanceSummary() {
+            const rows = monthRows(monthKey(new Date()));
+            const income = sumTransactions(rows, 'income');
+            const expenses = sumTransactions(rows, 'expense');
+            const allocated = sumTransactions(rows, 'saving');
+            const debtTotal = (Array.isArray(UD.dividas) ? UD.dividas : []).reduce((sum, debt) => sum + (Number(debt.saldo) || 0), 0);
+            const available = income - expenses - allocated;
+            $('financeSummary').innerHTML = `
+                <div class="finance-metric"><span>Receitas do mês</span><strong class="finance-positive">${financeMoney(income)}</strong></div>
+                <div class="finance-metric"><span>Despesas do mês</span><strong class="finance-negative">${financeMoney(expenses)}</strong></div>
+                <div class="finance-metric"><span>Saldo registrado no mês</span><strong>${financeMoney(available)}</strong></div>
+                <div class="finance-metric"><span>Dívidas em aberto</span><strong>${financeMoney(debtTotal)}</strong></div>`;
+        }
+
+        function renderTransactionHistory() {
+            const rows = financeRows().slice().reverse().slice(0, 10);
+            $('transactionList').innerHTML = rows.length ? rows.map(item => {
+                const sign = item.tipo === 'income' ? '+' : item.tipo === 'expense' ? '−' : '';
+                const color = item.tipo === 'income' ? 'finance-positive' : item.tipo === 'expense' ? 'finance-negative' : '';
+                return `<div class="finance-list-item">
+                    <div class="finance-item-main"><strong>${san(item.descricao || item.categoria || 'Movimentação')}</strong><small>${san(item.categoria || '')} · ${financeDateLabel(item.data)}</small></div>
+                    <div class="finance-item-actions"><strong class="${color}">${sign}${financeMoney(item.valor)}</strong>${item.origem === 'manual' ? `<button class="finance-small-btn" data-remove-transaction="${san(item.id)}" type="button" aria-label="Remover movimentação">×</button>` : ''}</div>
+                </div>`;
+            }).join('') : '<p style="color:var(--muted);font-size:.82rem">Nenhuma movimentação financeira registrada.</p>';
+        }
+
+        function renderDebts() {
+            const debts = Array.isArray(UD.dividas) ? UD.dividas : [];
+            const list = $('debtList');
+            list.innerHTML = debts.length ? debts.map(debt => `
+                <div class="finance-list-item">
+                    <div class="finance-item-main"><strong>${san(debt.nome)}</strong><small>Saldo ${financeMoney(debt.saldo)}${debt.vencimento ? ` · vence ${financeDateLabel(debt.vencimento)}` : ''}</small></div>
+                    <div class="finance-item-actions">${debt.saldo > 0 ? `<button class="finance-small-btn" data-pay-debt="${san(debt.id)}" type="button">Pagar</button>` : '<span class="finance-positive">Quitada</span>'}<button class="finance-small-btn" data-remove-debt="${san(debt.id)}" type="button" aria-label="Remover dívida">×</button></div>
+                </div>`).join('') : '<p style="color:var(--muted);font-size:.82rem">Nenhuma dívida cadastrada.</p>';
+        }
+
+        function renderBills() {
+            const bills = Array.isArray(UD.contas) ? UD.contas : [];
+            const list = $('billList');
+            list.innerHTML = bills.length ? bills.slice().sort((a, b) => (a.vencimento || '').localeCompare(b.vencimento || '')).map(bill => `
+                <div class="finance-list-item">
+                    <div class="finance-item-main"><strong>${san(bill.nome)}</strong><small>${financeMoney(bill.valor)} · vence ${financeDateLabel(bill.vencimento)}${bill.pago ? ' · paga' : ''}</small></div>
+                    <div class="finance-item-actions">${bill.pago ? '<span class="finance-positive">✓</span>' : `<button class="finance-small-btn" data-pay-bill="${san(bill.id)}" type="button">Pagar</button>`}<button class="finance-small-btn" data-remove-bill="${san(bill.id)}" type="button" aria-label="Remover lembrete">×</button></div>
+                </div>`).join('') : '<p style="color:var(--muted);font-size:.82rem">Nenhuma conta cadastrada.</p>';
+        }
+
+        function renderGoals() {
+            const goals = Array.isArray(UD.metas) ? UD.metas : [];
+            const list = $('goalList');
+            list.innerHTML = goals.length ? goals.map(goal => {
+                const percent = Math.min(100, goal.alvo ? (goal.guardado / goal.alvo) * 100 : 0);
+                return `<div class="finance-list-item" style="align-items:flex-start">
+                    <div class="finance-item-main" style="flex:1"><strong>${san(goal.nome)}</strong><small>${financeMoney(goal.guardado)} de ${financeMoney(goal.alvo)}${goal.prazo ? ` · até ${financeDateLabel(goal.prazo)}` : ''}</small><div class="finance-goal-progress" role="progressbar" aria-valuenow="${Math.round(percent)}" aria-valuemin="0" aria-valuemax="100"><span style="width:${percent}%"></span></div></div>
+                    <div class="finance-item-actions"><button class="finance-small-btn" data-add-goal="${san(goal.id)}" type="button" ${percent >= 100 ? 'disabled' : ''}>+ Guardar</button><button class="finance-small-btn" data-remove-goal="${san(goal.id)}" type="button" aria-label="Remover meta">×</button></div>
+                </div>`;
+            }).join('') : '<p style="color:var(--muted);font-size:.82rem">Crie uma meta para acompanhar seu progresso.</p>';
+        }
+
+        function renderFinanceReport() {
+            const key = monthKey(calendarMonth);
+            const rows = monthRows(key);
+            const income = sumTransactions(rows, 'income');
+            const expenses = sumTransactions(rows, 'expense');
+            const categories = {};
+            rows.filter(item => item.tipo === 'expense').forEach(item => {
+                categories[item.categoria] = (categories[item.categoria] || 0) + (Number(item.valor) || 0);
+            });
+            const topCategories = Object.entries(categories).sort((a, b) => b[1] - a[1]).slice(0, 3);
+            const now = new Date();
+            const currentRows = monthRows(monthKey(now));
+            const currentExpenses = sumTransactions(currentRows, 'expense');
+            const daysElapsed = now.getDate();
+            const daysTotal = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+            const projection = daysElapsed ? currentExpenses / daysElapsed * daysTotal : currentExpenses;
+            const balanceProjection = sumTransactions(currentRows, 'income') - projection;
+            $('financeReport').innerHTML = `
+                <div class="finance-list-item"><span>${san(monthTitle(calendarMonth))}</span><strong>${financeMoney(income - expenses)}</strong></div>
+                <div class="finance-list-item"><span>Projeção de despesas deste mês</span><strong>${financeMoney(projection)}</strong></div>
+                <div class="finance-list-item"><span>Saldo projetado (receitas − despesas)</span><strong class="${balanceProjection < 0 ? 'finance-negative' : 'finance-positive'}">${financeMoney(balanceProjection)}</strong></div>
+                <div class="finance-list-item"><span>Movimentações no período</span><strong>${rows.length}</strong></div>
+                ${topCategories.length ? `<p style="color:var(--muted);font-size:.76rem;margin:.5rem 0">Maiores categorias: ${topCategories.map(([name, value]) => `${san(name)} (${financeMoney(value)})`).join(' · ')}</p>` : '<p style="color:var(--muted);font-size:.76rem;margin:.5rem 0">Registre despesas para ver as categorias com maior gasto.</p>'}`;
+            drawFinanceChart();
+        }
+
+        function drawFinanceChart() {
+            const canvas = $('financeChart');
+            const context = canvas?.getContext('2d');
+            if (!canvas || !context) return;
+            const width = Math.max(canvas.clientWidth, 280);
+            const height = 190;
+            const ratio = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = width * ratio;
+            canvas.height = height * ratio;
+            context.scale(ratio, ratio);
+            context.clearRect(0, 0, width, height);
+            const data = [];
+            for (let offset = 5; offset >= 0; offset--) {
+                const date = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - offset, 1);
+                const rows = monthRows(monthKey(date));
+                data.push({
+                    label: date.toLocaleDateString('pt-BR', { month: 'short' }).replace('.', ''),
+                    income: sumTransactions(rows, 'income'),
+                    expense: sumTransactions(rows, 'expense')
+                });
+            }
+            const max = Math.max(1, ...data.flatMap(item => [item.income, item.expense]));
+            const top = 14, bottom = 32, chartHeight = height - top - bottom;
+            const groupWidth = width / data.length;
+            data.forEach((item, index) => {
+                const center = groupWidth * index + groupWidth / 2;
+                const barWidth = Math.min(16, groupWidth * .25);
+                const incomeHeight = item.income / max * chartHeight;
+                const expenseHeight = item.expense / max * chartHeight;
+                context.fillStyle = '#34D399';
+                context.fillRect(center - barWidth - 2, top + chartHeight - incomeHeight, barWidth, incomeHeight);
+                context.fillStyle = '#F87171';
+                context.fillRect(center + 2, top + chartHeight - expenseHeight, barWidth, expenseHeight);
+                context.fillStyle = '#94A3B8';
+                context.font = '11px sans-serif';
+                context.textAlign = 'center';
+                context.fillText(item.label, center, height - 8);
+            });
+        }
+
+        function calendarItemsFor(date) {
+            const dayKey = `${monthKey(date)}-${String(date.getDate()).padStart(2, '0')}`;
+            const events = financeRows().filter(item => item.data === dayKey).map(item => ({
+                label: item.descricao || item.categoria || (item.tipo === 'income' ? 'Receita' : item.tipo === 'saving' ? 'Meta de economia' : 'Despesa'),
+                value: item.valor,
+                type: item.tipo,
+                date: item.data
+            }));
+            (Array.isArray(UD.contas) ? UD.contas : []).filter(bill => bill.vencimento === dayKey).forEach(bill => {
+                events.push({ label: `${bill.nome}${bill.pago ? ' · paga' : ' · vencimento'}`, value: bill.valor, type: 'bill', date: bill.vencimento });
+            });
+            return events;
+        }
+
+        function renderCalendar() {
+            $('calendarTitle').textContent = monthTitle(calendarMonth);
+            const grid = $('financeCalendar');
+            const dayLabels = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+            const first = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), 1);
+            const days = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 0).getDate();
+            const eventDates = new Set(financeRows().map(item => item.data));
+            const billDates = new Set((Array.isArray(UD.contas) ? UD.contas : []).map(bill => bill.vencimento));
+            grid.innerHTML = dayLabels.map(day => `<span aria-hidden="true">${day}</span>`).join('');
+            for (let blank = 0; blank < first.getDay(); blank++) grid.insertAdjacentHTML('beforeend', '<span></span>');
+            for (let day = 1; day <= days; day++) {
+                const dateKey = `${monthKey(calendarMonth)}-${String(day).padStart(2, '0')}`;
+                const classes = ['calendar-day'];
+                if (eventDates.has(dateKey)) classes.push('has-event');
+                if (billDates.has(dateKey)) classes.push('has-bill');
+                if (dateKey === today()) classes.push('today');
+                grid.insertAdjacentHTML('beforeend', `<span class="${classes.join(' ')}" data-calendar-date="${dateKey}" tabindex="0" role="button" aria-label="${day} ${san(monthTitle(calendarMonth))}">${day}</span>`);
+            }
+            renderCalendarEvents(selectedCalendarDate);
+        }
+
+        function renderCalendarEvents(dateKey) {
+            const events = calendarItemsFor(new Date(`${dateKey}T12:00:00`));
+            $('calendarEvents').innerHTML = events.length ? events.map(item => `
+                <div class="finance-list-item"><span>${san(item.label)}<small>${financeDateLabel(item.date)}</small></span><strong class="${item.type === 'income' ? 'finance-positive' : item.type === 'expense' ? 'finance-negative' : ''}">${item.type === 'income' ? '+' : item.type === 'expense' ? '−' : ''}${financeMoney(item.value)}</strong></div>
+            `).join('') : `<p style="color:var(--muted);font-size:.78rem">Nenhum evento em ${financeDateLabel(dateKey)}.</p>`;
+        }
+
+        function checkBillNotifications() {
+            if (!('Notification' in window) || Notification.permission !== 'granted' || !CU) return;
+            const due = (Array.isArray(UD.contas) ? UD.contas : []).filter(bill => {
+                if (bill.pago || !bill.vencimento) return false;
+                const days = Math.round((new Date(`${bill.vencimento}T12:00:00`) - new Date(`${today()}T12:00:00`)) / 86400000);
+                return days >= 0 && days <= 3;
+            });
+            due.forEach(bill => {
+                const key = `quita-bill-${CU.uid}-${bill.id}-${today()}`;
+                try {
+                    if (localStorage.getItem(key)) return;
+                    new Notification(`Conta próxima: ${bill.nome}`, {
+                        body: `${financeMoney(bill.valor)} · vence em ${financeDateLabel(bill.vencimento)}`,
+                        icon: './icons/icon-192.png'
+                    });
+                    localStorage.setItem(key, '1');
+                } catch (error) {
+                    console.warn('Não foi possível exibir o lembrete de conta:', error);
+                }
+            });
+        }
+
+        setInterval(checkBillNotifications, 60_000);
+
+        function renderFinancePanel() {
+            if (!UD) return;
+            renderFinanceSummary();
+            renderFinanceAlerts();
+            renderTransactionHistory();
+            renderDebts();
+            renderBills();
+            renderGoals();
+            renderFinanceReport();
+            renderCalendar();
+            checkBillNotifications();
+        }
+
+        $('transactionForm').addEventListener('submit', async event => {
+            event.preventDefault();
+            const amount = Number($('transactionAmount').value);
+            if (!Number.isFinite(amount) || amount <= 0 || amount > 10000000) {
+                flash('Informe um valor válido para a movimentação.', 'var(--accent)');
+                return;
+            }
+            const transaction = {
+                id: makeFinanceId(),
+                tipo: $('transactionType').value,
+                valor: Math.round(amount * 100) / 100,
+                categoria: $('transactionCategory').value,
+                data: $('transactionDate').value || today(),
+                descricao: $('transactionNote').value.trim().slice(0, 60),
+                origem: 'manual'
+            };
+            if (await mutateFinance(current => ({
+                movimentacoesFinanceiras: [...(Array.isArray(current.movimentacoesFinanceiras) ? current.movimentacoesFinanceiras : []), transaction].slice(-500)
+            }))) {
+                event.currentTarget.reset();
+                $('transactionDate').value = today();
+                renderTransactionCategories();
+                flash(`${transaction.tipo === 'income' ? 'Receita' : 'Despesa'} registrada.`);
+            }
+        });
+
+        $('debtForm').addEventListener('submit', async event => {
+            event.preventDefault();
+            const amount = Number($('debtAmount').value);
+            const name = $('debtName').value.trim().slice(0, 50);
+            if (!name || !Number.isFinite(amount) || amount <= 0 || amount > 10000000) {
+                flash('Informe o nome e um saldo de dívida válido.', 'var(--accent)');
+                return;
+            }
+            const debt = { id: makeFinanceId(), nome: name, saldo: Math.round(amount * 100) / 100, vencimento: $('debtDueDate').value || '' };
+            if (await mutateFinance(current => ({
+                dividas: [...(Array.isArray(current.dividas) ? current.dividas : []), debt].slice(-100)
+            }))) {
+                event.currentTarget.reset();
+                flash('Dívida adicionada ao acompanhamento.');
+            }
+        });
+
+        $('billForm').addEventListener('submit', async event => {
+            event.preventDefault();
+            const amount = Number($('billAmount').value);
+            const name = $('billName').value.trim().slice(0, 50);
+            const due = $('billDueDate').value;
+            if (!name || !due || !Number.isFinite(amount) || amount <= 0 || amount > 10000000) {
+                flash('Preencha a conta, o vencimento e um valor válido.', 'var(--accent)');
+                return;
+            }
+            const bill = { id: makeFinanceId(), nome: name, valor: Math.round(amount * 100) / 100, vencimento: due, pago: false };
+            if (await mutateFinance(current => ({
+                contas: [...(Array.isArray(current.contas) ? current.contas : []), bill].slice(-100)
+            }))) {
+                event.currentTarget.reset();
+                flash('Lembrete de conta criado.');
+            }
+        });
+
+        $('goalForm').addEventListener('submit', async event => {
+            event.preventDefault();
+            const amount = Number($('goalTarget').value);
+            const name = $('goalName').value.trim().slice(0, 50);
+            if (!name || !Number.isFinite(amount) || amount <= 0 || amount > 10000000) {
+                flash('Informe o nome e um valor válido para a meta.', 'var(--accent)');
+                return;
+            }
+            const goal = { id: makeFinanceId(), nome: name, alvo: Math.round(amount * 100) / 100, guardado: 0, prazo: $('goalDueDate').value || '', concluida: false };
+            if (await mutateFinance(current => ({
+                metas: [...(Array.isArray(current.metas) ? current.metas : []), goal].slice(-100)
+            }))) {
+                event.currentTarget.reset();
+                flash('Meta de economia criada. Bora chegar lá!');
+            }
+        });
+
+        $('debtList').addEventListener('click', async event => {
+            const payId = event.target.closest('[data-pay-debt]')?.dataset.payDebt;
+            const removeId = event.target.closest('[data-remove-debt]')?.dataset.removeDebt;
+            if (payId) {
+                const debt = (Array.isArray(UD.dividas) ? UD.dividas : []).find(item => item.id === payId);
+                if (!debt || debt.saldo <= 0) return;
+                const value = prompt(`Saldo: ${financeMoney(debt.saldo)}. Quanto deseja pagar agora? (R$)`);
+                if (value === null) return;
+                const amount = Number(value);
+                if (!Number.isFinite(amount) || amount <= 0 || amount > debt.saldo) {
+                    flash('Informe um pagamento positivo que não ultrapasse o saldo da dívida.', 'var(--accent)');
+                    return;
+                }
+                const success = await mutateFinance(current => {
+                    const debts = Array.isArray(current.dividas) ? current.dividas : [];
+                    const latestDebt = debts.find(item => item.id === payId);
+                    if (!latestDebt || latestDebt.saldo < amount) return {};
+                    const paid = Math.round(amount * 100) / 100;
+                    return {
+                        dividas: debts.map(item => item.id === payId ? { ...item, saldo: Math.round((item.saldo - paid) * 100) / 100 } : item),
+                        movimentacoesFinanceiras: [...(Array.isArray(current.movimentacoesFinanceiras) ? current.movimentacoesFinanceiras : []), {
+                            id: makeFinanceId(), tipo: 'expense', valor: paid, categoria: 'Pagamento de dívida',
+                            data: today(), descricao: `Pagamento: ${latestDebt.nome}`, origem: 'divida', referenceId: payId
+                        }].slice(-500)
+                    };
+                });
+                if (success) flash('Pagamento registrado e saldo da dívida atualizado.');
+            } else if (removeId && await mutateFinance(current => ({
+                dividas: (Array.isArray(current.dividas) ? current.dividas : []).filter(item => item.id !== removeId)
+            }))) {
+                flash('Dívida removida do acompanhamento.');
+            }
+        });
+
+        $('billList').addEventListener('click', async event => {
+            const payId = event.target.closest('[data-pay-bill]')?.dataset.payBill;
+            const removeId = event.target.closest('[data-remove-bill]')?.dataset.removeBill;
+            if (payId) {
+                const success = await mutateFinance(current => {
+                    const bills = Array.isArray(current.contas) ? current.contas : [];
+                    const bill = bills.find(item => item.id === payId);
+                    if (!bill || bill.pago) return {};
+                    return {
+                        contas: bills.map(item => item.id === payId ? { ...item, pago: true, pagoEm: today() } : item),
+                        movimentacoesFinanceiras: [...(Array.isArray(current.movimentacoesFinanceiras) ? current.movimentacoesFinanceiras : []), {
+                            id: makeFinanceId(), tipo: 'expense', valor: Number(bill.valor), categoria: 'Contas',
+                            data: today(), descricao: `Conta paga: ${bill.nome}`, origem: 'conta', referenceId: payId
+                        }].slice(-500)
+                    };
+                });
+                if (success) flash('Conta marcada como paga e despesa registrada.');
+            } else if (removeId && await mutateFinance(current => ({
+                contas: (Array.isArray(current.contas) ? current.contas : []).filter(item => item.id !== removeId)
+            }))) {
+                flash('Lembrete removido.');
+            }
+        });
+
+        $('goalList').addEventListener('click', async event => {
+            const addId = event.target.closest('[data-add-goal]')?.dataset.addGoal;
+            const removeId = event.target.closest('[data-remove-goal]')?.dataset.removeGoal;
+            if (addId) {
+                const input = prompt('Quanto deseja transferir para esta meta? (R$)');
+                if (input === null) return;
+                const value = Number(input);
+                if (!Number.isFinite(value) || value <= 0 || value > 10000000) {
+                    flash('Informe um valor positivo para contribuir com a meta.', 'var(--accent)');
+                    return;
+                }
+                const success = await mutateFinance(current => {
+                    const goals = Array.isArray(current.metas) ? current.metas : [];
+                    const goal = goals.find(item => item.id === addId);
+                    if (!goal || goal.concluida || goal.guardado >= goal.alvo) return {};
+                    const amount = Math.min(Math.round(value * 100) / 100, goal.alvo - goal.guardado);
+                    const saved = Math.round((goal.guardado + amount) * 100) / 100;
+                    return {
+                        metas: goals.map(item => item.id === addId ? { ...item, guardado: saved, concluida: saved >= item.alvo } : item),
+                        movimentacoesFinanceiras: [...(Array.isArray(current.movimentacoesFinanceiras) ? current.movimentacoesFinanceiras : []), {
+                            id: makeFinanceId(), tipo: 'saving', valor: amount, categoria: 'Meta de economia',
+                            data: today(), descricao: `Transferência para ${goal.nome}`, origem: 'meta', referenceId: addId
+                        }].slice(-500)
+                    };
+                });
+                if (success) {
+                    const goal = UD.metas.find(item => item.id === addId);
+                    if (goal?.concluida) {
+                        prepareCelebrationSound();
+                        celebrate(`🎆 META ALCANÇADA, ${UD.nome || CU.displayName || 'Guerreiro'}! 🥂`, `Você chegou ao objetivo: ${goal.nome}`);
+                    } else {
+                        flash('Contribuição adicionada à sua meta.');
+                    }
+                }
+            } else if (removeId && await mutateFinance(current => ({
+                metas: (Array.isArray(current.metas) ? current.metas : []).filter(item => item.id !== removeId)
+            }))) {
+                flash('Meta removida.');
+            }
+        });
+
+        $('transactionList').addEventListener('click', async event => {
+            const transactionId = event.target.closest('[data-remove-transaction]')?.dataset.removeTransaction;
+            if (!transactionId) return;
+            const removed = await mutateFinance(current => {
+                const transactions = Array.isArray(current.movimentacoesFinanceiras) ? current.movimentacoesFinanceiras : [];
+                const transaction = transactions.find(item => item.id === transactionId && item.origem === 'manual');
+                if (!transaction) return {};
+                return { movimentacoesFinanceiras: transactions.filter(item => item.id !== transactionId) };
+            });
+            if (removed) flash('Movimentação removida.');
+        });
+
+        $('financeAlerts').addEventListener('click', event => {
+            const challengeId = event.target.closest('[data-suggested-challenge]')?.dataset.suggestedChallenge;
+            if (challengeId) aceitarDesafio(challengeId);
+        });
+
+        $('notificationButton').addEventListener('click', async () => {
+            if (!('Notification' in window)) {
+                flash('Este navegador não oferece notificações.', 'var(--accent)');
+                return;
+            }
+            try {
+                const permission = await Notification.requestPermission();
+                if (permission === 'granted') {
+                    flash('Notificações ativadas. Você receberá lembretes quando abrir o Quita+.');
+                    checkBillNotifications();
+                } else {
+                    flash('Notificações não foram autorizadas. Os alertas continuam visíveis no app.', 'var(--accent)');
+                }
+            } catch (error) {
+                console.error('Não foi possível solicitar notificações:', error);
+                flash('Não foi possível ativar notificações neste navegador.', 'var(--accent)');
+            }
+        });
+
+        $('calendarPrev').addEventListener('click', () => {
+            calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - 1, 1);
+            selectedCalendarDate = `${monthKey(calendarMonth)}-01`;
+            renderFinanceReport();
+            renderCalendar();
+        });
+
+        $('calendarNext').addEventListener('click', () => {
+            calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 1);
+            selectedCalendarDate = `${monthKey(calendarMonth)}-01`;
+            renderFinanceReport();
+            renderCalendar();
+        });
+
+        $('financeCalendar').addEventListener('click', event => {
+            const date = event.target.closest('[data-calendar-date]')?.dataset.calendarDate;
+            if (!date) return;
+            selectedCalendarDate = date;
+            renderCalendarEvents(date);
+        });
+
+        $('financeCalendar').addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            const date = event.target.closest('[data-calendar-date]')?.dataset.calendarDate;
+            if (!date) return;
+            event.preventDefault();
+            selectedCalendarDate = date;
+            renderCalendarEvents(date);
+        });
+
+        $('transactionType').addEventListener('change', renderTransactionCategories);
+        renderTransactionCategories();
+
+        window.addEventListener('resize', () => {
+            if (UD) drawFinanceChart();
+        });
+
         // ─── UPDATE UI ────────────────────────────────────
         const CLASSES = ['Recruta', 'Soldado', 'Guerreiro', 'Caçador', 'Dragão', 'Lenda'];
         const AVATARS = ['🐣', '🐥', '🐺', '🦁', '🐉', '👑'];
@@ -1822,6 +2938,7 @@
             hl.innerHTML = hist.length
                 ? hist.map(h => `<li><span>${san(h.nota || 'Depósito')}<span class="hist-date">${(h.date || '').slice(8, 10)}/${(h.date || '').slice(5, 7)}</span></span><span style="color:var(--green)">+R$${(+h.val).toFixed(2)}</span></li>`).join('')
                 : `<li style="color:var(--muted)">Nenhum depósito ainda.</li>`;
+            renderFinancePanel();
         }
 
         // ─── LOAD USER ────────────────────────────────────
@@ -1833,6 +2950,7 @@
                 UD = snap.data();
                 UD.bossesHealth = Array.isArray(UD.bossesHealth) ? UD.bossesHealth : defaultHp();
                 for (const k of ['conquistas', 'historico', 'desafiosConcluidos']) if (!Array.isArray(UD[k])) UD[k] = [];
+                for (const k of ['movimentacoesFinanceiras', 'dividas', 'contas', 'metas']) if (!Array.isArray(UD[k])) UD[k] = [];
                 if (typeof UD.desafiosAtivos !== 'object' || UD.desafiosAtivos === null) UD.desafiosAtivos = {};
                 if (!UD.totalDesafios) UD.totalDesafios = 0;
                 // salvar dados do onboarding se ainda não existem
@@ -1846,10 +2964,18 @@
                     uid, email, nome, dataCriacao: now, plano: 'free', nivel: 1, xpTotal: 0, xpAtual: 0, xpProximoNivel: XP_BASE,
                     dinheiroGuardado: 0, conquistas: [], streak: 1, ultimoAcesso: now, bossesHealth: defaultHp(),
                     historico: [], desafiosAtivos: {}, desafiosConcluidos: [], totalDesafios: 0,
+                    movimentacoesFinanceiras: [], dividas: [], contas: [], metas: [],
                     inimigo: OB.inimigo, divida: OB.divida, tempo: OB.tempo
                 };
                 await setDoc(ref, UD);
             }
+            await setDoc(doc(db, 'ranking', uid), {
+                nome: (UD.nome || nome).slice(0, 30),
+                nivel: UD.nivel || 1,
+                xpTotal: UD.xpTotal || 0,
+                atualizadoEm: new Date().toISOString()
+            });
+            $('transactionDate').value = today();
             await updateStreak();
             updateUI();
             renderBosses();
