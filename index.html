@@ -1866,15 +1866,31 @@
             const btn = $('loginGoogleBtn');
             if (btn.disabled) return;
             btn.disabled = true;
+            // watchdog: se a janela do Google nem abrir/nunca resolver, orienta o usuário
+            const watchdog = setTimeout(() => {
+                if (btn.disabled) flash('A janela do Google não abriu. Permita popups e tente novamente.', 'var(--accent)');
+            }, 15000);
             try {
                 await signInWithPopup(auth, prov);
                 // onAuthStateChanged cuida do carregamento do usuário
             } catch (e) {
-                if (e?.code !== 'auth/popup-closed-by-user') {
+                const MSGS = {
+                    'auth/popup-blocked': 'O navegador bloqueou o popup. Permita popups para este site.',
+                    'auth/cancelled-popup-request': null,
+                    'auth/popup-closed-by-user': null,
+                    'auth/unauthorized-domain': 'Domínio não autorizado: Console Firebase → Authentication → Settings → Authorized domains.',
+                    'auth/network-request-failed': 'Falha de rede. Verifique sua conexão e tente novamente.',
+                    'auth/operation-not-allowed': 'Login com Google desativado no console do Firebase.',
+                    'auth/too-many-requests': 'Muitas tentativas. Aguarde um momento e tente novamente.'
+                };
+                const msg = MSGS[e?.code];
+                if (msg) flash(msg, 'var(--red)');
+                else if (!e?.code || !e.code.startsWith('auth/')) {
                     console.error(e);
                     flash('Erro ao fazer login. Tente novamente.', 'var(--red)');
                 }
             } finally {
+                clearTimeout(watchdog);
                 btn.disabled = false;
             }
         });
