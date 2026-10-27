@@ -30,10 +30,10 @@ O objetivo não é prometer resultados financeiros, mas incentivar escolhas mais
 
 ## Como executar
 
-1. Sirva os arquivos deste repositório por um servidor HTTP local ou publique-os em uma hospedagem estática.
-2. Configure o Firebase Authentication para permitir login com Google.
-3. Publique as regras do Cloud Firestore deste repositório (`firestore.rules`) no seu projeto Firebase.
-4. Abra a aplicação pelo endereço servido. O login e os recursos do Firebase exigem conexão e uma origem autorizada.
+1. Local: sirva os arquivos por um servidor HTTP (`python3 -m http.server`).
+2. Produção: `firebase deploy --only hosting` (app no ar em `https://quita-mais-app.web.app`).
+3. Login com Google: ativado no console (Authentication → Sign-in method → Google). O domínio de hosting do Firebase já vem autorizado automaticamente no Auth.
+4. Regras do Firestore: `firebase deploy --only firestore:rules`.
 
 > Não publique credenciais privadas no código do cliente. As chaves de configuração do Firebase usadas no navegador devem ser protegidas pelas regras do Firestore e pelas configurações de domínio autorizado.
 
